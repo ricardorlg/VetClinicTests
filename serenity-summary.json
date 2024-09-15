@@ -3,12 +3,12 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-15T04:52:31.047826997"
+"date": "2024-09-15T05:25:28.646684380"
 },
 "results": {
 "counts": {
-"total": 1,
-"success": 1,
+"total": 2,
+"success": 2,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
@@ -27,11 +27,11 @@
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 7141,
-"totalClockDuration": 7141,
-"minTestDuration": 7141,
-"maxTestDuration": 7141,
-"averageTestDuration": 7141
+"totalTestDuration": 35021,
+"totalClockDuration": 17904,
+"minTestDuration": 17117,
+"maxTestDuration": 17904,
+"averageTestDuration": 17510
 },
 "resultsByFeature": [
   {
@@ -39,6 +39,17 @@
   "scenarios": [
     {
     "title": "the one where Ricardo registers a new owner using the Web form with all mandatory data",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Kelly tries to register a new owner using the Web form with invalid data",
     "result": "success",
       "outcomes": [
         {
@@ -63,7 +74,7 @@
   "tagResults": [
     {
     "tagName": "Web",
-    "count": 1
+    "count": 2
     }
   ]
   },
@@ -72,7 +83,7 @@
   "tagResults": [
     {
     "tagName": "Chrome, Linux",
-    "count": 1
+    "count": 2
     }
   ]
   }
