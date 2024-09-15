@@ -14,7 +14,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 public final class DockerManager {
     public static final Logger LOGGER = getLogger(DockerManager.class);
     private static final GenericContainer<?> container = createContainer();
-    private static final Map<String, GenericContainer<?>> containersByActor = new ConcurrentHashMap<>();
+    private static final Map<String, GenericContainer<?>> containerMap = new ConcurrentHashMap<>();
 
     private DockerManager() {
     }
@@ -30,8 +30,8 @@ public final class DockerManager {
     }
 
     public synchronized static void startGlobalContainer() {
-        LOGGER.info("Starting global container");
         if (!container.isCreated() || !container.isRunning()) {
+            LOGGER.info("Starting global container");
             container.start();
         }
     }
@@ -47,35 +47,35 @@ public final class DockerManager {
             container.stop();
         }
 
-        if (!containersByActor.isEmpty()) {
-            LOGGER.info("Stopping containers used by actors");
-            containersByActor.values().forEach(GenericContainer::stop);
-            containersByActor.clear();
+        if (!containerMap.isEmpty()) {
+            LOGGER.info("Stopping containers used by tests");
+            containerMap.values().forEach(GenericContainer::stop);
+            containerMap.clear();
         }
     }
 
-    public synchronized static GenericContainer<?> startContainerForActor(String actorName) {
-        if (!isContainerForActorRunning(actorName)) {
-            LOGGER.info("Starting container for actor: {}", actorName);
-            GenericContainer<?> actorContainer = createContainer();
-            actorContainer.start();
-            containersByActor.put(actorName, actorContainer);
+    public synchronized static GenericContainer<?> startContainerFor(String identifier) {
+        if (!isContainerForKeyRunning(identifier)) {
+            LOGGER.info("Starting container for: {}", identifier);
+            GenericContainer<?> container = createContainer();
+            container.start();
+            containerMap.put(identifier, container);
         }
-        return containersByActor.get(actorName);
+        return containerMap.get(identifier);
     }
 
-    public synchronized static void stopContainerForActor(String actorName) {
-        Optional.ofNullable(containersByActor.remove(actorName))
+    public synchronized static void stopContainerFor(String identifier) {
+        Optional.ofNullable(containerMap.remove(identifier))
                 .ifPresent(container -> {
                     if (container.isRunning()) {
-                        LOGGER.info("Stopping container for actor: {}", actorName);
+                        LOGGER.info("Stopping container for: {}", identifier);
                         container.stop();
                     }
                 });
     }
 
-    private static boolean isContainerForActorRunning(String actorName) {
-        return Optional.ofNullable(containersByActor.get(actorName))
+    private static boolean isContainerForKeyRunning(String key) {
+        return Optional.ofNullable(containerMap.get(key))
                 .map(GenericContainer::isRunning)
                 .orElse(false);
     }

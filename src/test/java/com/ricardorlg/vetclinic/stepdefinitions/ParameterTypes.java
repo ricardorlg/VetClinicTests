@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class ParameterTypes {
     @ParameterType("[A-Z][a-z]+")
     public Actor actor(String actor) {

@@ -10,28 +10,33 @@ import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.actors.OnStage;
 
+@SuppressWarnings("unused")
 public class Hooks {
 
 
     @BeforeAll
-    public static void globalSetup() {
+    public synchronized static void globalSetup() {
         var withRestLogging = EnvironmentSpecificConfiguration.from(Serenity.environmentVariables())
                 .getBooleanProperty("enable.rest.logging");
-        DockerManager.startGlobalContainer();
         if (withRestLogging) {
             SerenityRest.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         }
     }
 
-
-    @Before(value = "not @Isolated", order = 1)
-    public void setStageWithGlobalContainer(Scenario scenario) {
-        OnStage.setTheStage(new VetClinicCast(false));
+    @Before(order = 1)
+    public void beforeScenario(Scenario scenario) {
+        OnStage.setTheStage(new VetClinicCast(scenario));
     }
 
-    @Before(value = "@Isolated", order = 2)
-    public void setIsolatedStage() {
-        OnStage.setTheStage(new VetClinicCast(true));
+    @Before(value = "@withFeatureLevelContainer", order = 2)
+    public void beforeScenarioWithFeatureLevelContainer(Scenario scenario) {
+        OnStage.setTheStage(new VetClinicCast(scenario,false, true));
+    }
+
+
+    @Before(value = "@withScenarioLevelContainer", order = 3)
+    public void setIsolatedStage(Scenario scenario) {
+        OnStage.setTheStage(new VetClinicCast(scenario, false, false));
     }
 
     @After

@@ -17,6 +17,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.hasItem;
 
+@SuppressWarnings("unused")
 public class OwnerRegistrationSteps {
 
     @Given("{actor} wants to register a new owner using the web application")
