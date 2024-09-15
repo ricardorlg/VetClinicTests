@@ -8,4 +8,5 @@ public record OwnerRowInformation(
         String city,
         String telephone,
         String pets
-) { }
+) {
+}

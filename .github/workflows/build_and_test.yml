@@ -48,7 +48,7 @@ jobs:
             flaky_summary: true
 
         - name: Deploy Serenity reports
-          if: github.ref == 'refs/heads/main'
+          if: ${{ !cancelled() && github.event_name != 'pull_request' }}
           uses: JamesIves/github-pages-deploy-action@v4
           with:
             folder: target/site/serenity

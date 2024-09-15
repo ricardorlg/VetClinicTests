@@ -2,7 +2,6 @@ package com.ricardorlg.vetclinic.actors;
 
 import com.ricardorlg.vetclinc.utils.Constants;
 import com.ricardorlg.vetclinc.utils.DockerManager;
-import io.cucumber.java.Scenario;
 import net.serenitybdd.screenplay.Ability;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -15,11 +14,9 @@ import org.openqa.selenium.WebDriver;
 @SuppressWarnings("unchecked")
 public class VetClinicCast extends Cast {
 
-    private final Scenario scenario;
     private final boolean useIsolatedContainer;
 
-    public VetClinicCast(Scenario scenario, boolean useIsolatedContainer) {
-        this.scenario = scenario;
+    public VetClinicCast(boolean useIsolatedContainer) {
         this.useIsolatedContainer = useIsolatedContainer;
     }
 
@@ -28,7 +25,7 @@ public class VetClinicCast extends Cast {
         Actor actor = super.actorNamed(actorName, abilities);
         String baseUrl;
         if (useIsolatedContainer) {
-            var container = DockerManager.startContainerForScenario(scenario.getName());
+            var container = DockerManager.startContainerForActor(actor.getName());
             baseUrl = DockerManager.getContainerBaseUrl(container);
         } else {
             baseUrl = DockerManager.getGlobalContainerBaseUrl();
@@ -46,5 +43,10 @@ public class VetClinicCast extends Cast {
 
     private WebDriver theDefaultBrowserFor(String actorName) {
         return ThucydidesWebDriverSupport.getWebdriverManager().getWebdriverByName(actorName);
+    }
+
+    @Override
+    public void dismissAll() {
+        getActors().forEach(actor -> DockerManager.stopContainerForActor(actor.getName()));
     }
 }

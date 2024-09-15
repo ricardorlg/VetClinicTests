@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.RememberThat;
+import net.serenitybdd.screenplay.actors.OnStage;
 
 import static com.ricardorlg.vetclinc.questions.OwnerQuestions.theDisplayedOwnersTable;
 import static net.serenitybdd.screenplay.EventualConsequence.eventually;
@@ -32,6 +33,26 @@ public class OwnerRegistrationSteps {
                 RegisterOwner.withInformation(ownerPersonalInformation),
                 RememberThat.theValueOf(Constants.REGISTERED_OWNER_INFORMATION).is(ownerPersonalInformation)
         );
+    }
+
+    @When("{actor} sends a registration request using the clinic API with the following data")
+    @Given("{actor} has already registered an owner with the following information")
+    public void sendsARegistrationRequestUsingTheClinicAPI(Actor actor, OwnerPersonalInformation ownerPersonalInformation) {
+        actor.attemptsTo(
+                RegisterOwner.withInformation(ownerPersonalInformation),
+                RememberThat.theValueOf(Constants.REGISTERED_OWNER_INFORMATION).is(ownerPersonalInformation)
+        );
+    }
+
+    @When("{pronoun} fills the registration form with the same data used by {actor}")
+    @When("{actor} sends a registration request using the clinic API with the same data used by {actor}")
+    public void fillsTheRegistrationFormWithTheSameDataUsedByAnotherActor(Actor whoWillPerform, Actor whoHasRegisteredTheOwner) {
+        var ownerInformation = whoHasRegisteredTheOwner
+                .<OwnerPersonalInformation>recall(Constants.REGISTERED_OWNER_INFORMATION);
+        whoWillPerform.attemptsTo(
+                RegisterOwner.withInformation(ownerInformation)
+        );
+        OnStage.theActorCalled(whoWillPerform.getName()).entersTheScene();
     }
 
     @Then("the owner should be registered successfully")

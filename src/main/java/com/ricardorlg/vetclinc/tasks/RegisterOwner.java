@@ -2,6 +2,7 @@ package com.ricardorlg.vetclinc.tasks;
 
 import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
 import com.ricardorlg.vetclinc.utils.Constants;
+import com.ricardorlg.vetclinc.utils.EndPoints;
 import net.serenitybdd.markers.IsHidden;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -11,8 +12,10 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.questions.TheMemory;
+import net.serenitybdd.screenplay.rest.interactions.Post;
 
 import static com.ricardorlg.vetclinc.ui.RegisterNewOwnerPage.*;
+import static com.ricardorlg.vetclinc.utils.EndPoints.REGISTER_OWNER_PATH;
 
 public class RegisterOwner implements Task, IsHidden {
     private final OwnerPersonalInformation ownerInformation;
@@ -49,6 +52,14 @@ public class RegisterOwner implements Task, IsHidden {
     }
 
     private Performable registerOwnerUsingApi() {
-        return Task.where("{0} registers a new Owner using the API");
+        return Task.where("{0} registers a new Owner using the API",
+                Post.to(REGISTER_OWNER_PATH.getPath())
+                        .with(request -> {
+                                    request.header("Content-Type", "application/json");
+                                    request.body(ownerInformation);
+                                    return request;
+                                }
+                        )
+        );
     }
 }

@@ -14,7 +14,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 public final class DockerManager {
     public static final Logger LOGGER = getLogger(DockerManager.class);
     private static final GenericContainer<?> container = createContainer();
-    private static final Map<String, GenericContainer<?>> containersByScenario = new ConcurrentHashMap<>();
+    private static final Map<String, GenericContainer<?>> containersByActor = new ConcurrentHashMap<>();
 
     private DockerManager() {
     }
@@ -47,34 +47,35 @@ public final class DockerManager {
             container.stop();
         }
 
-        if (!containersByScenario.isEmpty()) {
-            LOGGER.info("Stopping containers used by scenarios");
-            containersByScenario.values().forEach(GenericContainer::stop);
-            containersByScenario.clear();
+        if (!containersByActor.isEmpty()) {
+            LOGGER.info("Stopping containers used by actors");
+            containersByActor.values().forEach(GenericContainer::stop);
+            containersByActor.clear();
         }
     }
 
-    public synchronized static GenericContainer<?> startContainerForScenario(String scenarioName) {
-        if (!isContainerForScenarioRunning(scenarioName)) {
-            LOGGER.info("Starting container for scenario: {}", scenarioName);
-            GenericContainer<?> scenarioContainer = createContainer();
-            scenarioContainer.start();
-            containersByScenario.put(scenarioName, scenarioContainer);
+    public synchronized static GenericContainer<?> startContainerForActor(String actorName) {
+        if (!isContainerForActorRunning(actorName)) {
+            LOGGER.info("Starting container for actor: {}", actorName);
+            GenericContainer<?> actorContainer = createContainer();
+            actorContainer.start();
+            containersByActor.put(actorName, actorContainer);
         }
-        return containersByScenario.get(scenarioName);
+        return containersByActor.get(actorName);
     }
 
-    public synchronized static void stopContainerForScenario(String scenarioName) {
-        Optional.ofNullable(containersByScenario.remove(scenarioName))
+    public synchronized static void stopContainerForActor(String actorName) {
+        Optional.ofNullable(containersByActor.remove(actorName))
                 .ifPresent(container -> {
                     if (container.isRunning()) {
+                        LOGGER.info("Stopping container for actor: {}", actorName);
                         container.stop();
                     }
                 });
     }
 
-    private static boolean isContainerForScenarioRunning(String scenarioName) {
-        return Optional.ofNullable(containersByScenario.get(scenarioName))
+    private static boolean isContainerForActorRunning(String actorName) {
+        return Optional.ofNullable(containersByActor.get(actorName))
                 .map(GenericContainer::isRunning)
                 .orElse(false);
     }
