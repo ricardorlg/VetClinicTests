@@ -104,7 +104,7 @@
                 <version>3.5.0</version>
                 <configuration>
                     <includes>
-                        <include>**/runners/AcceptanceTestSuite.java</include>
+                        <include>**/runners/VetClinicTestSuite.java</include>
                     </includes>
                     <excludes>
                         <exclude>**/runners/Current*.java</exclude>

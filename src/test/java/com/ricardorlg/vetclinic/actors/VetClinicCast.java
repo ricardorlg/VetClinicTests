@@ -12,6 +12,7 @@ import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import net.thucydides.model.environment.SystemEnvironmentVariables;
 import org.openqa.selenium.WebDriver;
 
+@SuppressWarnings("unchecked")
 public class VetClinicCast extends Cast {
 
     private final Scenario scenario;
@@ -24,7 +25,7 @@ public class VetClinicCast extends Cast {
 
     @Override
     public Actor actorNamed(String actorName, Ability... abilities) {
-        var actor = super.actorNamed(actorName, abilities);
+        Actor actor = super.actorNamed(actorName, abilities);
         String baseUrl;
         if (useIsolatedContainer) {
             var container = DockerManager.startContainerForScenario(scenario.getName());

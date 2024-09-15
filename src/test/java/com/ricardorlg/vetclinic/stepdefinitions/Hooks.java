@@ -14,10 +14,6 @@ public class Hooks {
         DockerManager.startGlobalContainer();
     }
 
-    @ParameterType("[A-Z][a-z]+")
-    public Actor actor(String actor) {
-        return OnStage.theActorCalled(actor);
-    }
 
     @Before(value = "not @Isolated", order = 1)
     public void setStageWithGlobalContainer(Scenario scenario) {
