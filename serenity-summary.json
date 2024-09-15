@@ -3,42 +3,141 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-15T05:25:28.646684380"
+"date": "2024-09-15T09:36:36.679626840"
 },
 "results": {
 "counts": {
-"total": 2,
-"success": 2,
+"total": 12,
+"success": 10,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 0,
+"failure": 2,
 "error": 0,
 "compromised": 0
 },
 "percentages": {
-"success": 100,
+"success": 83,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 0,
+"failure": 17,
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 35021,
-"totalClockDuration": 17904,
-"minTestDuration": 17117,
-"maxTestDuration": 17904,
-"averageTestDuration": 17510
+"totalTestDuration": 98605,
+"totalClockDuration": 38316,
+"minTestDuration": 89,
+"maxTestDuration": 35509,
+"averageTestDuration": 8210
 },
 "resultsByFeature": [
   {
   "featureName": "The Pet Clinic should allow to register a pet owner in the system",
   "scenarios": [
     {
-    "title": "the one where Ricardo registers a new owner using the Web form with all mandatory data",
+    "title": "the one where Ricardo tries to register a new owner using the clinic API with an existing owner",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": "Assertion error: Expected: <400> but: was <201>"
+        }
+      ]
+    },
+    {
+    "title": "1: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [1]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "1: the one where Kelly tries to register a new owner using the clinic API with invalid data ({firstName=[empty], lastName=perez, address=address, city=amsterdam, phone=0629416300, code_error=NotEmpty, field_error=firstName})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "2: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [2]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "2: the one where Kelly tries to register a new owner using the clinic API with invalid data ({firstName=ricardo, lastName=[empty], address=address, city=amsterdam, phone=0629416300, code_error=NotEmpty, field_error=lastName})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "3: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [3]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "3: the one where Kelly tries to register a new owner using the clinic API with invalid data ({firstName=ricardo, lastName=perez, address=[empty], city=amsterdam, phone=0629416300, code_error=NotEmpty, field_error=address})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "4: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [4]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "4: the one where Kelly tries to register a new owner using the clinic API with invalid data ({firstName=ricardo, lastName=perez, address=address, city=[empty], phone=0629416300, code_error=NotEmpty, field_error=city})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "5: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [5]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "5: the one where Kelly tries to register a new owner using the clinic API with invalid data ({firstName=ricardo, lastName=perez, address=address, city=amsterdam, phone=[empty], code_error=NotEmpty, field_error=telephone})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "6: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [6]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "6: the one where Kelly tries to register a new owner using the clinic API with invalid data ({firstName=ricardo, lastName=perez, address=address, city=amsterdam, phone=abc, code_error=Digits, field_error=telephone})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "7: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [7]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "7: the one where Kelly tries to register a new owner using the clinic API with invalid data ({firstName=ricardo, lastName=perez, address=address, city=amsterdam, phone=12312312312, code_error=Digits, field_error=telephone})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo tries to register a new owner using the Web form with an existing owner",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": "Assertion error: There is no alert present"
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo registers a new owner using the clinic API with all mandatory data",
     "result": "success",
       "outcomes": [
         {
@@ -58,13 +157,32 @@
         "errorMessage": ""
         }
       ]
+    },
+    {
+    "title": "the one where Ricardo registers a new owner using the Web form with all mandatory data",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
     }
   ]
   }
 ],
 "frequentFailures": [
+  {
+  "name": "Multiple assertion errors",
+  "count": 2
+  }
 ],
 "unstableFeatures": [
+  {
+  "name": "The Pet Clinic should allow to register a pet owner in the system",
+  "failurePercentage": 16
+  }
 ],
 "coverage": [
 ],
@@ -73,16 +191,20 @@
   "tagType": "",
   "tagResults": [
     {
+    "tagName": "Api",
+    "count": 9
+    },
+    {
     "tagName": "Web",
-    "count": 2
+    "count": 3
     }
   ]
   },
   {
-  "tagType": "context",
+  "tagType": "error",
   "tagResults": [
     {
-    "tagName": "Chrome, Linux",
+    "tagName": "Assertion error",
     "count": 2
     }
   ]
