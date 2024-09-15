@@ -3,7 +3,7 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-15T03:52:36.733283159"
+"date": "2024-09-15T04:52:31.047826997"
 },
 "results": {
 "counts": {
@@ -27,11 +27,11 @@
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 74,
-"totalClockDuration": 74,
-"minTestDuration": 74,
-"maxTestDuration": 74,
-"averageTestDuration": 74
+"totalTestDuration": 7141,
+"totalClockDuration": 7141,
+"minTestDuration": 7141,
+"maxTestDuration": 7141,
+"averageTestDuration": 7141
 },
 "resultsByFeature": [
   {
@@ -63,6 +63,15 @@
   "tagResults": [
     {
     "tagName": "Web",
+    "count": 1
+    }
+  ]
+  },
+  {
+  "tagType": "context",
+  "tagResults": [
+    {
+    "tagName": "Chrome, Linux",
     "count": 1
     }
   ]
