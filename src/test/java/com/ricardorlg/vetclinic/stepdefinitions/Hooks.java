@@ -15,12 +15,12 @@ public class Hooks {
     }
 
 
-    @Before(value = "not @Isolated", order = 1)
+    @Before(value = "not @Isolated and not @WithServerDown", order = 1)
     public void setStageWithGlobalContainer(Scenario scenario) {
         OnStage.setTheStage(new VetClinicCast(scenario, false));
     }
 
-    @Before(value = "@Isolated", order = 2)
+    @Before(value = "@Isolated and not @WithServerDown", order = 2)
     public void setIsolatedStage(Scenario scenario) {
         OnStage.setTheStage(new VetClinicCast(scenario, true));
     }

@@ -15,9 +15,8 @@ Business Need: The Pet Clinic should allow to register a pet owner in the system
       Then the owner should be registered successfully
 
     @Web
-    @skip
     Example: the one where Kelly tries to register a new owner using the Web form with invalid data
-      Given Kelly wants to register a new owner using the Web form
+      Given Kelly wants to register a new owner using the web application
       When she fills the registration form with the following information
         | firstName | lastName | address | city    | phone |
         | [blank]   | [blank]  | [blank] | [blank] | abc   |
