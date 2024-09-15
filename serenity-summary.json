@@ -3,12 +3,12 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-15T09:36:36.679626840"
+"date": "2024-09-15T15:56:32.337882871"
 },
 "results": {
 "counts": {
-"total": 12,
-"success": 10,
+"total": 19,
+"success": 17,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
@@ -18,22 +18,104 @@
 "compromised": 0
 },
 "percentages": {
-"success": 83,
+"success": 89,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 17,
+"failure": 11,
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 98605,
-"totalClockDuration": 38316,
-"minTestDuration": 89,
-"maxTestDuration": 35509,
-"averageTestDuration": 8210
+"totalTestDuration": 560218,
+"totalClockDuration": 98039,
+"minTestDuration": 199,
+"maxTestDuration": 85294,
+"averageTestDuration": 29476
 },
 "resultsByFeature": [
+  {
+  "featureName": "The Pet Clinic should allow to filter the owners in the system",
+  "scenarios": [
+    {
+    "title": "the one where Ricardo filters the owners by unknown city",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by city",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by phone",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by first name",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by last name",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by address",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by first and last name",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    }
+  ]
+  },
   {
   "featureName": "The Pet Clinic should allow to register a pet owner in the system",
   "scenarios": [
@@ -126,17 +208,6 @@
       ]
     },
     {
-    "title": "the one where Ricardo tries to register a new owner using the Web form with an existing owner",
-    "result": "failure",
-      "outcomes": [
-        {
-        "result": "failure",
-        "description": "",
-        "errorMessage": "Assertion error: There is no alert present"
-        }
-      ]
-    },
-    {
     "title": "the one where Ricardo registers a new owner using the clinic API with all mandatory data",
     "result": "success",
       "outcomes": [
@@ -168,6 +239,17 @@
         "errorMessage": ""
         }
       ]
+    },
+    {
+    "title": "the one where Ricardo tries to register a new owner using the Web form with an existing owner",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": "Assertion error: There is no alert present"
+        }
+      ]
     }
   ]
   }
@@ -191,12 +273,21 @@
   "tagType": "",
   "tagResults": [
     {
-    "tagName": "Api",
-    "count": 9
+    "tagName": "Web",
+    "count": 10
     },
     {
-    "tagName": "Web",
-    "count": 3
+    "tagName": "Api",
+    "count": 9
+    }
+  ]
+  },
+  {
+  "tagType": "context",
+  "tagResults": [
+    {
+    "tagName": "Chrome, Linux",
+    "count": 19
     }
   ]
   },

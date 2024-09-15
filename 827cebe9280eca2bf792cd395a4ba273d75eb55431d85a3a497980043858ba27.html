@@ -243,7 +243,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 15-09-2024 09:37:18</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 15-09-2024 15:58:15</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -258,7 +258,7 @@
                         <td width="375px" valign="top">
                             <div class="test-count-summary">
                                 <div class="test-count-title">
-                                    3 tests
+                                    10 tests
 
                                      |
                                         <a href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.csv" title="Download CSV"> <i class="bi bi-cloud-arrow-down"
@@ -331,60 +331,60 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>3</td>
+                    <td>10</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>3</td>
+                    <td>10</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Sep 15, 2024 09:36:39</td>
+                    <td>Sep 15, 2024 15:56:32</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Sep 15, 2024 09:37:14</td>
+                    <td>Sep 15, 2024 15:58:10</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>35s</td>
+                    <td> 1m 38s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>21s</td>
+                    <td>40s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>35s</td>
+                    <td> 1m 25s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>26s</td>
+                    <td>50s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td> 1m 18s</td>
+                    <td> 8m 21s</td>
                 </tr>
                 </tbody>
             </table>
@@ -416,31 +416,184 @@
                                                                         <tbody>
                                                                                 <tr>
                                                                                     <td>
+                                                                                            <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html"> The Pet Clinic should allow to filter the owners in the system</a>
+                                                                                    </td>
+                                                                                    <td>7</td>
+                                                                                    <td>Given Ricardo has registered the following owners in the system
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+Ricardo registers a new Owner using the API
+Ricardo executes a POST on the resource /owners
+POST http://localhost:32770/owners
+Ricardo registers a new Owner using the API
+Ricardo executes a POST on the resource /owners
+POST http://localhost:32770/owners
+Ricardo registers a new Owner using the API
+Ricardo executes a POST on the resource /owners
+POST http://localhost:32770/owners
+Ricardo registers a new Owner using the API
+Ricardo executes a POST on the resource /owners
+POST http://localhost:32770/owners
+Ricardo registers a new Owner using the API
+Ricardo executes a POST on the resource /owners
+POST http://localhost:32770/owners
+And he wants to filter the data of the owners displayed in the Owners page
+Ricardo navigates to the all owners page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the All Owners button
+When he filters using the following information "Rotterdam"
+Ricardo filters the owners table with the search filter: Rotterdam
+Ricardo enters 'Rotterdam' then hits [ENTER] into 'Search Filter' field
+Then he should see no owners
+For Ricardo: Then the displayed owners information table should be an empty collection
+Given Ricardo has registered the following owners in the system
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+And he wants to filter the data of the owners displayed in the Owners page
+Ricardo navigates to the all owners page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the All Owners button
+When he filters using the following information "Miami"
+Ricardo filters the owners table with the search filter: Miami
+Ricardo enters 'Miami' then hits [ENTER] into 'Search Filter' field
+Then he should see the following owners in the table
+| firstName | lastName | address | city | phone |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+For Ricardo: Then the displayed owners information table should be a collection with size (2)
+For Ricardo: Then the displayed owners information table should only have the owners with the following information: [John Doe, Jane Doe]
+Given Ricardo has registered the following owners in the system
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+And he wants to filter the data of the owners displayed in the Owners page
+Ricardo navigates to the all owners page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the All Owners button
+When he filters using the following information "0629423456"
+Ricardo filters the owners table with the search filter: 0629423456
+Ricardo enters '0629423456' then hits [ENTER] into 'Search Filter' field
+Then he should see the following owners in the table
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+For Ricardo: Then the displayed owners information table should be a collection with size (1)
+For Ricardo: Then the displayed owners information table should only have the owners with the following information: [Jost Vander]
+Given Ricardo has registered the following owners in the system
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+And he wants to filter the data of the owners displayed in the Owners page
+Ricardo navigates to the all owners page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the All Owners button
+When he filters using the following information "Paola"
+Ricardo filters the owners table with the search filter: Paola
+Ricardo enters 'Paola' then hits [ENTER] into 'Search Filter' field
+Then he should see the following owners in the table
+| firstName | lastName | address | city | phone |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+For Ricardo: Then the displayed owners information table should be a collection with size (1)
+For Ricardo: Then the displayed owners information table should only have the owners with the following information: [Paola Larrahondo]
+Given Ricardo has registered the following owners in the system
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+And he wants to filter the data of the owners displayed in the Owners page
+Ricardo navigates to the all owners page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the All Owners button
+When he filters using the following information "Dent"
+Ricardo filters the owners table with the search filter: Dent
+Ricardo enters 'Dent' then hits [ENTER] into 'Search Filter' field
+Then he should see the following owners in the table
+| firstName | lastName | address | city | phone |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+For Ricardo: Then the displayed owners information table should be a collection with size (1)
+For Ricardo: Then the displayed owners information table should only have the owners with the following information: [Arthur Dent]
+Given Ricardo has registered the following owners in the system
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+And he wants to filter the data of the owners displayed in the Owners page
+Ricardo navigates to the all owners page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the All Owners button
+When he filters using the following information "128 Main St"
+Ricardo filters the owners table with the search filter: 128 Main St
+Ricardo enters '128 Main St' then hits [ENTER] into 'Search Filter' field
+Then he should see the following owners in the table
+| firstName | lastName | address | city | phone |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+For Ricardo: Then the displayed owners information table should be a collection with size (1)
+For Ricardo: Then the displayed owners information table should only have the owners with the following information: [Jane Doe]
+Given Ricardo has registered the following owners in the system
+| firstName | lastName | address | city | phone |
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+And he wants to filter the data of the owners displayed in the Owners page
+Ricardo navigates to the all owners page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the All Owners button
+When he filters using the following information "John Doe"
+Ricardo filters the owners table with the search filter: John Doe
+Ricardo enters 'John Doe' then hits [ENTER] into 'Search Filter' field
+Then he should see no owners
+For Ricardo: Then the displayed owners information table should be an empty collection
+</td>
+                                                                                    <td>7</td>
+                                                                                    <td>100%</td>
+                                                                                    <td>
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="progress">
+                                                                                                <div class="progress-bar"
+                                                                                                     role="progressbar"
+                                                                                                     style="width: 100%; background-color: #b0cf73"
+                                                                                                     aria-valuenow="7"
+                                                                                                     title="100% success"
+                                                                                                     aria-valuemin="0"
+                                                                                                     aria-valuemax="100">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
                                                                                             <a href="1900125df73b5521fa54458936cbdd4cc85e74d2906541cff40ef2a8a3ae0fe7.html"> The Pet Clinic should allow to register a pet owner in the system</a>
                                                                                     </td>
                                                                                     <td>3</td>
-                                                                                    <td>Given Kelly has already registered an owner with the following information
-| firstName | lastName | address | city | phone |
-| Josh | Long | prinsengracht 263 | Amsterdam | 0687234567 |
-Kelly registers a new Owner using the API
-Kelly executes a POST on the resource /owners
-POST http://localhost:32769/owners
-And Ricardo wants to register a new owner using the web application
-Ricardo navigates to the owner registration page
-Ricardo opens the home.page page
-Ricardo clicks on the Owners menu
-Ricardo clicks on the Register button
-When He fills the registration form with the same data used by Kelly
-Ricardo registers a new Owner using the web form
-Ricardo enters 'Josh' into the 'firstName' input field
-Ricardo enters 'Long' into the 'lastName' input field
-Ricardo enters 'prinsengracht 263' into the 'address' input field
-Ricardo enters 'Amsterdam' into the 'city' input field
-Ricardo enters '0687234567' into the 'telephone' input field
-Ricardo clicks on the Submit button
-Then he should see an alert containing the following error
-For Ricardo: Then the content of visible alert should contain all the invalid fields
-Given Kelly wants to register a new owner using the web application
+                                                                                    <td>Given Kelly wants to register a new owner using the web application
 Kelly navigates to the owner registration page
 Kelly opens the home.page page
 Kelly clicks on the Owners menu
@@ -474,6 +627,27 @@ Ricardo enters '0629416321' into the 'telephone' input field
 Ricardo clicks on the Submit button
 Then the owner should be registered successfully
 For Ricardo: Then the displayed owners information table should contain the information of Estefania Ramirez
+Given Kelly has already registered an owner with the following information
+| firstName | lastName | address | city | phone |
+| Josh | Long | prinsengracht 263 | Amsterdam | 0687234567 |
+Kelly registers a new Owner using the API
+Kelly executes a POST on the resource /owners
+POST http://localhost:32769/owners
+And Ricardo wants to register a new owner using the web application
+Ricardo navigates to the owner registration page
+Ricardo opens the home.page page
+Ricardo clicks on the Owners menu
+Ricardo clicks on the Register button
+When He fills the registration form with the same data used by Kelly
+Ricardo registers a new Owner using the web form
+Ricardo enters 'Josh' into the 'firstName' input field
+Ricardo enters 'Long' into the 'lastName' input field
+Ricardo enters 'prinsengracht 263' into the 'address' input field
+Ricardo enters 'Amsterdam' into the 'city' input field
+Ricardo enters '0687234567' into the 'telephone' input field
+Ricardo clicks on the Submit button
+Then he should see an alert containing the following error
+For Ricardo: Then the content of visible alert should contain all the invalid fields
 </td>
                                                                                     <td>3</td>
                                                                                     <td>67%</td>
@@ -553,7 +727,19 @@ For Ricardo: Then the displayed owners information table should contain the info
                             <div>
                                     <a href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.html">
                                     <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Web&nbsp;&nbsp;&nbsp;3
+                                        <i class="bi bi-tag-fill"></i> Web&nbsp;&nbsp;&nbsp;10
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="46b54d9084ba9783130da16408afb27a4e4620f6bd966e731510c7395b9ddf5c.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome, Linux&nbsp;&nbsp;&nbsp;10
                                     </span>
                                     </a>
                             </div>
@@ -588,22 +774,22 @@ For Ricardo: Then the displayed owners information table should contain the info
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>3</td>
+                    <td>10</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>35s</td>
+                    <td> 1m 38s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>3</td>
+                    <td>10</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>21s</td>
+                    <td>40s</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -614,30 +800,30 @@ For Ricardo: Then the displayed owners information table should contain the info
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>35s</td>
+                    <td> 1m 25s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Sep 15, 2024 09:36:39</td>
+                    <td>Sep 15, 2024 15:56:32</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>26s</td>
+                    <td>50s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Sep 15, 2024 09:37:14</td>
+                    <td>Sep 15, 2024 15:58:10</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td> 1m 18s</td>
+                    <td> 8m 21s</td>
                 </tr>
                 </tbody>
             </table>
@@ -660,14 +846,314 @@ For Ricardo: Then the displayed owners information table should contain the info
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html">The Pet Clinic should allow to filter the owners in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo filters the owners by unknown city">
+                                                                                    <a href="7a8444a02ce2cae930d6a5d0df0cee584a166072868393525501be4940b99e92.html">the one where Ricardo filters the owners by unknown city</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Given Ricardo has registered the following owners in the system
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+And he wants to filter the data of the owners displayed in the Owners page
+When he filters using the following information "Rotterdam"
+Then he should see no owners
+</td>
+                                                                        <td data-order="1726415792">15:56:32</td>
+                                                                        <td>1m 25s</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html">The Pet Clinic should allow to filter the owners in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo filters the owners by city">
+                                                                                    <a href="7a47ae69ad4301ab4f6c9fdf9e404e385e0d3c5eae1e3dcca404b1e3f963eea0.html">the one where Ricardo filters the owners by city</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Given Ricardo has registered the following owners in the system
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+And he wants to filter the data of the owners displayed in the Owners page
+When he filters using the following information "Miami"
+Then he should see the following owners in the table
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+
+</td>
+                                                                        <td data-order="1726415831">15:57:11</td>
+                                                                        <td>49s 560ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html">The Pet Clinic should allow to filter the owners in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo filters the owners by phone">
+                                                                                    <a href="da2d9007a449d51e6eef2c2db41b2ece99ff525c0aa81bc7d0c7b4eed5a3dff3.html">the one where Ricardo filters the owners by phone</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Given Ricardo has registered the following owners in the system
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+And he wants to filter the data of the owners displayed in the Owners page
+When he filters using the following information "0629423456"
+Then he should see the following owners in the table
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+
+</td>
+                                                                        <td data-order="1726415831">15:57:11</td>
+                                                                        <td>48s 697ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html">The Pet Clinic should allow to filter the owners in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo filters the owners by first name">
+                                                                                    <a href="4d7a53e323f58518fc9cfac5631624fdcb33236d8641af322ae6e41dd727e0db.html">the one where Ricardo filters the owners by first name</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Given Ricardo has registered the following owners in the system
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+And he wants to filter the data of the owners displayed in the Owners page
+When he filters using the following information "Paola"
+Then he should see the following owners in the table
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+
+</td>
+                                                                        <td data-order="1726415836">15:57:16</td>
+                                                                        <td>44s 404ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html">The Pet Clinic should allow to filter the owners in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo filters the owners by last name">
+                                                                                    <a href="a896f76054402c737aac90c7cb26ab8330179b6ee45ee089c9846cd8c2744421.html">the one where Ricardo filters the owners by last name</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Given Ricardo has registered the following owners in the system
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+And he wants to filter the data of the owners displayed in the Owners page
+When he filters using the following information "Dent"
+Then he should see the following owners in the table
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+</td>
+                                                                        <td data-order="1726415838">15:57:18</td>
+                                                                        <td>41s 746ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html">The Pet Clinic should allow to filter the owners in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo filters the owners by address">
+                                                                                    <a href="956c247fae1065013aecefefb91174dbf430c0045652fd8ff37b31023633773b.html">the one where Ricardo filters the owners by address</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Given Ricardo has registered the following owners in the system
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+And he wants to filter the data of the owners displayed in the Owners page
+When he filters using the following information "128 Main St"
+Then he should see the following owners in the table
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+
+</td>
+                                                                        <td data-order="1726415839">15:57:19</td>
+                                                                        <td>40s 641ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html">The Pet Clinic should allow to filter the owners in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo filters the owners by first and last name">
+                                                                                    <a href="8e36e774681a853bdf5fb65d6dafa8baa911ed3e6c2a58c9ec6ee040f6dc34f4.html">the one where Ricardo filters the owners by first and last name</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td>Given Ricardo has registered the following owners in the system
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Jost | Vander | zuid-hollandstraat 130-2 | Amsterdam | 0629423456 |
+| Paola | Larrahondo | carrera 15F #30-15 sur | Bogota | 3158230923 |
+| John | Doe | 123 Main St | Miami | 3051234567 |
+| Jane | Doe | 128 Main St | Miami | 3051234267 |
+| Arthur | Dent | 42 Main St | London | 0207946060 |
+
+And he wants to filter the data of the owners displayed in the Owners page
+When he filters using the following information "John Doe"
+Then he should see no owners
+</td>
+                                                                        <td data-order="1726415841">15:57:21</td>
+                                                                        <td>41s 185ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="1900125df73b5521fa54458936cbdd4cc85e74d2906541cff40ef2a8a3ae0fe7.html">The Pet Clinic should allow to register a pet owner in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Kelly tries to register a new owner using the Web form with invalid data">
+                                                                                    <a href="4ba699c1313e8b1d05f7ac22d0d342ad636a318a0e568a90eb703338cf6243a5.html">the one where Kelly tries to register a new owner using the Web form with invalid data</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>3</td>
+                                                                        <td>Given Kelly wants to register a new owner using the web application
+When she fills the registration form with the following information
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| [blank] | [blank] | [blank] | [blank] | abc |
+
+Then she should see an alert containing the following error
+</td>
+                                                                        <td data-order="1726415830">15:57:10</td>
+                                                                        <td>44s 275ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="1900125df73b5521fa54458936cbdd4cc85e74d2906541cff40ef2a8a3ae0fe7.html">The Pet Clinic should allow to register a pet owner in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo registers a new owner using the Web form with all mandatory data">
+                                                                                    <a href="7dd535ded46db872e02632b8b939e9a62ec2e5eb83a46e71b4b76165d602cd0c.html">the one where Ricardo registers a new owner using the Web form with all mandatory data</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>3</td>
+                                                                        <td>Given Ricardo wants to register a new owner using the web application
+When he fills the registration form with the following information
+
+
+| firstName | lastName | address | city | phone |
+|---|---|---|---|---|
+| Estefania | Ramirez | zuid-hollandstraat 130-2 | Amsterdam | 0629416321 |
+
+Then the owner should be registered successfully
+</td>
+                                                                        <td data-order="1726415831">15:57:11</td>
+                                                                        <td>48s 555ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
                                                                     <tr class="scenario-result FAILURE">
                                                                         <td>
                                                                                 <a href="1900125df73b5521fa54458936cbdd4cc85e74d2906541cff40ef2a8a3ae0fe7.html">The Pet Clinic should allow to register a pet owner in the system</a>
                                                                         </td>
                                                                         <td data-order="the one where Ricardo tries to register a new owner using the Web form with an existing owner">
-                                                                                    <a href="c13c2a24bf2944b5bb091b8281be9cf18bada86c5b942a0e161e297079d2963a.html">the one where Ricardo tries to register a new owner using the Web form with an existing owner</a>
+                                                                                    <a href="7fa816320ebd916599860da64b94bd73aa305bdd2f6cc098511c55a277f2cd0a.html">the one where Ricardo tries to register a new owner using the Web form with an existing owner</a>
                                                                         </td>
-                                                                        <td><span style="display:none"></span>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
                                                                         </td>
                                                                         <td>4</td>
                                                                         <td>Given Kelly has already registered an owner with the following information
@@ -681,62 +1167,10 @@ And Ricardo wants to register a new owner using the web application
 When He fills the registration form with the same data used by Kelly
 Then he should see an alert containing the following error
 </td>
-                                                                        <td data-order="1726392999">09:36:39</td>
-                                                                        <td>35s 509ms</td>
+                                                                        <td data-order="1726415832">15:57:12</td>
+                                                                        <td>57s 458ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a> <span
                                                                                     style="display:none">FAILURE</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr class="scenario-result SUCCESS">
-                                                                        <td>
-                                                                                <a href="1900125df73b5521fa54458936cbdd4cc85e74d2906541cff40ef2a8a3ae0fe7.html">The Pet Clinic should allow to register a pet owner in the system</a>
-                                                                        </td>
-                                                                        <td data-order="the one where Kelly tries to register a new owner using the Web form with invalid data">
-                                                                                    <a href="9a95082515d7750151c3874facdc35e1390dfb63d7815d98be940c1e0745ce39.html">the one where Kelly tries to register a new owner using the Web form with invalid data</a>
-                                                                        </td>
-                                                                        <td><span style="display:none"></span>
-                                                                        </td>
-                                                                        <td>3</td>
-                                                                        <td>Given Kelly wants to register a new owner using the web application
-When she fills the registration form with the following information
-
-
-| firstName | lastName | address | city | phone |
-|---|---|---|---|---|
-| [blank] | [blank] | [blank] | [blank] | abc |
-
-Then she should see an alert containing the following error
-</td>
-                                                                        <td data-order="1726393002">09:36:42</td>
-                                                                        <td>21s 388ms</td>
-                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
-                                                                                    style="display:none">SUCCESS</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr class="scenario-result SUCCESS">
-                                                                        <td>
-                                                                                <a href="1900125df73b5521fa54458936cbdd4cc85e74d2906541cff40ef2a8a3ae0fe7.html">The Pet Clinic should allow to register a pet owner in the system</a>
-                                                                        </td>
-                                                                        <td data-order="the one where Ricardo registers a new owner using the Web form with all mandatory data">
-                                                                                    <a href="d98ca867c068a8ab838ee587f6f109c61d3c20c5864ad2a5e43f5a93158551a6.html">the one where Ricardo registers a new owner using the Web form with all mandatory data</a>
-                                                                        </td>
-                                                                        <td><span style="display:none"></span>
-                                                                        </td>
-                                                                        <td>3</td>
-                                                                        <td>Given Ricardo wants to register a new owner using the web application
-When he fills the registration form with the following information
-
-
-| firstName | lastName | address | city | phone |
-|---|---|---|---|---|
-| Estefania | Ramirez | zuid-hollandstraat 130-2 | Amsterdam | 0629416321 |
-
-Then the owner should be registered successfully
-</td>
-                                                                        <td data-order="1726393005">09:36:45</td>
-                                                                        <td>21s 511ms</td>
-                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
-                                                                                    style="display:none">SUCCESS</span>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -763,7 +1197,19 @@ Then the owner should be registered successfully
                             <div>
                                     <a href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.html">
                                     <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Web&nbsp;&nbsp;&nbsp;3
+                                        <i class="bi bi-tag-fill"></i> Web&nbsp;&nbsp;&nbsp;10
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="46b54d9084ba9783130da16408afb27a4e4620f6bd966e731510c7395b9ddf5c.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome, Linux&nbsp;&nbsp;&nbsp;10
                                     </span>
                                     </a>
                             </div>
@@ -829,7 +1275,7 @@ Then the owner should be registered successfully
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [2,0,0,0,0,1,0,0],
+                data: [9,0,0,0,0,1,0,0],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -880,7 +1326,7 @@ Then the owner should be registered successfully
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = "67%"
+                        var text = "90%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -925,7 +1371,7 @@ Then the owner should be registered successfully
             datasets: [
                 {
                     label: 'Automated',
-                    data: [2,0,0,0,0,1,0,0],
+                    data: [9,0,0,0,0,1,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -1008,7 +1454,7 @@ Then the owner should be registered successfully
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['0','0','2','1','0','0','0','0'],
+                data: ['0','0','0','9','1','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
@@ -1071,6 +1517,11 @@ Then the owner should be registered successfully
 
         const coverageReports = [
             {
+                title: 'The Pet Clinic should allow to filter the owners in the system',
+                result: 'SUCCESS',
+                link: "7f1be3fc3b473a15d3b87067113b8e8d9acdc4079e4aeda7f1251129eb040d87.html"
+            },
+            {
                 title: 'The Pet Clinic should allow to register a pet owner in the system',
                 result: 'FAILURE',
                 link: "1900125df73b5521fa54458936cbdd4cc85e74d2906541cff40ef2a8a3ae0fe7.html"
@@ -1078,47 +1529,48 @@ Then the owner should be registered successfully
         ]
         const coverageData = {
             labels: [
+                'The Pet Clinic should allow to filter the owners in the system',
                 'The Pet Clinic should allow to register a pet owner in the system',
             ],
             datasets: [
                 {
                     label: ['Passing Tests'],
-                    data: [2],
+                    data: [7,2],
                     backgroundColor: [ 'rgba(153,204,51,0.5)' ]
                 },
                 {
                     label: ['Pending Tests'],
-                    data: [0],
+                    data: [0,0],
                     backgroundColor: [ 'rgba(165, 199, 238, 0.5)' ]
                 },
                 {
                     label: ['Ignored Tests'],
-                    data: [0],
+                    data: [0,0],
                     backgroundColor: [ 'rgba(168, 168, 168, 0.5)' ]
                 },
                 {
                     label: ['Skipped Tests'],
-                    data: [0],
+                    data: [0,0],
                     backgroundColor: [ 'rgba(238, 224, 152, 0.75)' ]
                 },
                 {
                     label: ['Aborted Tests'],
-                    data: [0],
+                    data: [0,0],
                     backgroundColor: [ 'rgba(255, 153, 102, 0.5)' ]
                 },
                 {
                     label: ['Failed Tests'],
-                    data: [1],
+                    data: [0,1],
                     backgroundColor: [ 'rgba(255, 22, 49, 0.5)' ]
                 },
                 {
                     label: ['Errors'],
-                    data: [0],
+                    data: [0,0],
                     backgroundColor: [ 'rgba(255, 97, 8, 0.5)' ]
                 },
                 {
                     label: ['Compromised Tests'],
-                    data: [0],
+                    data: [0,0],
                     backgroundColor: [ 'rgba(255, 104, 255, 0.5)' ]
                 },
             ]
