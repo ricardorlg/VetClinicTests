@@ -2,7 +2,7 @@ package com.ricardorlg.vetclinc.tasks;
 
 import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
 import com.ricardorlg.vetclinc.utils.Constants;
-import com.ricardorlg.vetclinc.utils.EndPoints;
+import net.serenitybdd.markers.CanBeSilent;
 import net.serenitybdd.markers.IsHidden;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -17,15 +17,21 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 import static com.ricardorlg.vetclinc.ui.RegisterNewOwnerPage.*;
 import static com.ricardorlg.vetclinc.utils.EndPoints.REGISTER_OWNER_PATH;
 
-public class RegisterOwner implements Task, IsHidden {
+public class RegisterOwner implements Task, IsHidden, CanBeSilent {
     private final OwnerPersonalInformation ownerInformation;
+    private final boolean withNoReporting;
 
-    public RegisterOwner(OwnerPersonalInformation ownerInformation) {
+    public RegisterOwner(OwnerPersonalInformation ownerInformation,boolean withNoReporting) {
         this.ownerInformation = ownerInformation;
+        this.withNoReporting = withNoReporting;
     }
 
     public static RegisterOwner withInformation(OwnerPersonalInformation ownerInformation) {
-        return Tasks.instrumented(RegisterOwner.class, ownerInformation);
+        return Tasks.instrumented(RegisterOwner.class, ownerInformation,false);
+    }
+
+    public RegisterOwner withNoReporting() {
+        return Tasks.instrumented(RegisterOwner.class, ownerInformation,true);
     }
 
     @Override
@@ -61,5 +67,10 @@ public class RegisterOwner implements Task, IsHidden {
                                 }
                         )
         );
+    }
+
+    @Override
+    public boolean isSilent() {
+        return withNoReporting;
     }
 }

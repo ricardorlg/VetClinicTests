@@ -2,6 +2,8 @@ package com.ricardorlg.vetclinic.actors;
 
 import com.ricardorlg.vetclinc.utils.Constants;
 import com.ricardorlg.vetclinc.utils.DockerManager;
+import io.cucumber.java.Scenario;
+import net.serenitybdd.model.buildinfo.BuildInfo;
 import net.serenitybdd.screenplay.Ability;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -9,26 +11,45 @@ import net.serenitybdd.screenplay.actors.Cast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import net.thucydides.model.environment.SystemEnvironmentVariables;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 
 @SuppressWarnings("unchecked")
 public class VetClinicCast extends Cast {
+    private final Scenario scenario;
+    private final boolean withGlobalContainer;
+    private final boolean withFeatureLevelContainer;
 
-    private final boolean useIsolatedContainer;
-
-    public VetClinicCast(boolean useIsolatedContainer) {
-        this.useIsolatedContainer = useIsolatedContainer;
+    public VetClinicCast(Scenario scenario) {
+        this(scenario, true, false);
     }
+
+    public VetClinicCast(Scenario scenario, boolean withGlobalContainer, boolean withFeatureLevelContainer) {
+        this.scenario = scenario;
+        this.withGlobalContainer = withGlobalContainer;
+        this.withFeatureLevelContainer = withFeatureLevelContainer;
+    }
+
 
     @Override
     public Actor actorNamed(String actorName, Ability... abilities) {
         Actor actor = super.actorNamed(actorName, abilities);
         String baseUrl;
-        if (useIsolatedContainer) {
-            var container = DockerManager.startContainerForActor(actor.getName());
-            baseUrl = DockerManager.getContainerBaseUrl(container);
-        } else {
+        if (withGlobalContainer) {
             baseUrl = DockerManager.getGlobalContainerBaseUrl();
+            BuildInfo.section("Docker Container Information")
+                    .setProperty("Global URL", baseUrl);
+        } else if (withFeatureLevelContainer) {
+            var featureName = StringUtils.substringAfterLast(scenario.getUri().toString(), "/");
+            var container = DockerManager.startContainerFor(featureName);
+            baseUrl = DockerManager.getContainerBaseUrl(container);
+            BuildInfo.section("Docker Container Information")
+                    .setProperty("Feature URL", baseUrl);
+        } else {
+            var container = DockerManager.startContainerFor(scenario.getName());
+            baseUrl = DockerManager.getContainerBaseUrl(container);
+            BuildInfo.section("Docker Container Information")
+                    .setProperty("Scenario URL", baseUrl);
         }
         if (actor.abilityTo(CallAnApi.class) == null) {
             actor.can(CallAnApi.at(baseUrl));
@@ -47,6 +68,6 @@ public class VetClinicCast extends Cast {
 
     @Override
     public void dismissAll() {
-        getActors().forEach(actor -> DockerManager.stopContainerForActor(actor.getName()));
+        DockerManager.stopContainerFor(scenario.getName());
     }
 }

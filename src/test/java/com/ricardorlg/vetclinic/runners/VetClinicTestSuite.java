@@ -13,5 +13,6 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 @SelectClasspathResource("/features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.ricardorlg.vetclinic.stepdefinitions")
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "not @current and not @skip")
+@SuppressWarnings("unused")
 public class VetClinicTestSuite {
 }

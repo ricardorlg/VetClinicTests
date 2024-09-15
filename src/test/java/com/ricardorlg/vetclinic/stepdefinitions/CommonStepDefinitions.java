@@ -1,12 +1,15 @@
 package com.ricardorlg.vetclinic.stepdefinitions;
 
-import com.ricardorlg.vetclinc.utils.DockerManager;
+import com.ricardorlg.vetclinc.facts.RegisteredOwners;
+import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
 import io.cucumber.docstring.DocString;
-import io.cucumber.java.en.Given;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.questions.TheResponse;
+
+import java.util.List;
 
 import static com.ricardorlg.vetclinc.questions.CommonApiQuestions.theErrorsInResponse;
 import static com.ricardorlg.vetclinc.questions.CommonWebQuestions.theDisplayedAlertErrorContent;
@@ -17,7 +20,13 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.containsStringIgnoringCase;
 import static org.hamcrest.CoreMatchers.equalTo;
 
+@SuppressWarnings("unused")
 public class CommonStepDefinitions {
+
+    @And("{actor} has registered the following owners in the system")
+    public void theFollowingOwnersAreRegisteredInTheSystem(Actor actor, List<OwnerPersonalInformation> ownersList) {
+        actor.has(RegisteredOwners.from(ownersList));
+    }
 
     @Then("{pronoun} should see an alert containing the following error")
     public void shouldSeeAnAlertContainingTheFollowingError(Actor actor, DocString expectedErrorContent) {
