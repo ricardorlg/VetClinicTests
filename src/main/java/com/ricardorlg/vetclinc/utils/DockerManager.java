@@ -1,10 +1,16 @@
 package com.ricardorlg.vetclinc.utils;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ricardorlg.vetclinc.models.api.owners.CompleteOwnerInformation;
+import net.thucydides.model.util.FileSystemUtils;
 import org.slf4j.Logger;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -82,5 +88,15 @@ public final class DockerManager {
 
     public static String getContainerBaseUrl(GenericContainer<?> container) {
         return "http://" + container.getHost() + ":" + container.getFirstMappedPort();
+    }
+
+    public static List<CompleteOwnerInformation> getDefaultOwnersData() {
+        var jsonData = FileSystemUtils.getResourceAsFile("default_owners_data.json");
+        try {
+            return new ObjectMapper().readValue(jsonData, new TypeReference<>() {
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

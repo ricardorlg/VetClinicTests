@@ -3,12 +3,14 @@ package com.ricardorlg.vetclinc.facts;
 import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
 import com.ricardorlg.vetclinc.tasks.RegisterOwner;
 import com.ricardorlg.vetclinc.utils.Constants;
+import net.serenitybdd.model.exceptions.TestCompromisedException;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Forget;
 import net.serenitybdd.screenplay.RememberThat;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.facts.Fact;
 import net.serenitybdd.screenplay.questions.TheMemory;
+import net.serenitybdd.screenplay.rest.interactions.Ensure;
 
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -44,15 +46,19 @@ public final class RegisteredOwners implements Fact {
                                     .andIfSo(
                                             Forget.theValueOf(Constants.USE_WEB_FORM_KEY),
                                             RegisterOwner.withInformation(owner),
+                                            Ensure.silentlyThat(response -> response.statusCode(201)),
                                             RememberThat.theValueOf(Constants.USE_WEB_FORM_KEY).is(true)
                                     )
                                     .otherwise(
-                                            RegisterOwner.withInformation(owner)
+                                            RegisterOwner.withInformation(owner),
+                                            Ensure.silentlyThat(response -> response.statusCode(201))
                                     ),
                             RememberThat.theValueOf(Constants.REGISTERED_OWNERS).is(registeredOwners)
                     );
                 }
             }
+        } catch (Throwable e) {
+            throw new TestCompromisedException("An error occurred while registering the owners", e);
         } finally {
             lock.unlock();
         }

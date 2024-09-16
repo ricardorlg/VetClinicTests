@@ -44,13 +44,11 @@ public class VetClinicCast extends Cast {
             var container = DockerManager.startContainerFor(featureName);
             baseUrl = DockerManager.getContainerBaseUrl(container);
             BuildInfo.section("Docker Container Information")
-                    .setProperty("Feature URL", baseUrl);
+                    .setProperty(featureName + " URL", baseUrl);
         } else {
-            var container = DockerManager.startContainerFor(scenario.getName());
-            baseUrl = DockerManager.getContainerBaseUrl(container);
-            BuildInfo.section("Docker Container Information")
-                    .setProperty("Scenario URL", baseUrl);
+            throw new IllegalStateException("At least one of the flags withGlobalContainer or withFeatureLevelContainer must be true");
         }
+
         if (actor.abilityTo(CallAnApi.class) == null) {
             actor.can(CallAnApi.at(baseUrl));
         }

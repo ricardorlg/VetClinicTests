@@ -23,20 +23,14 @@ public class Hooks {
         }
     }
 
-    @Before(order = 1)
+    @Before(value = "not @withFeatureLevelContainer and not @withScenarioLevelContainer", order = 1)
     public void beforeScenario(Scenario scenario) {
         OnStage.setTheStage(new VetClinicCast(scenario));
     }
 
-    @Before(value = "@withFeatureLevelContainer", order = 2)
+    @Before(value = "@withFeatureLevelContainer and not @withScenarioLevelContainer", order = 2)
     public void beforeScenarioWithFeatureLevelContainer(Scenario scenario) {
         OnStage.setTheStage(new VetClinicCast(scenario,false, true));
-    }
-
-
-    @Before(value = "@withScenarioLevelContainer", order = 3)
-    public void setIsolatedStage(Scenario scenario) {
-        OnStage.setTheStage(new VetClinicCast(scenario, false, false));
     }
 
     @After

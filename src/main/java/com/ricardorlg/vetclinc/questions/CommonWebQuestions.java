@@ -1,9 +1,12 @@
 package com.ricardorlg.vetclinc.questions;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.actions.AlertText;
+import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.NoAlertPresentException;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public final class CommonWebQuestions {
@@ -23,5 +26,10 @@ public final class CommonWebQuestions {
                         throw new AssertionError("There is no alert present", e);
                     }
                 });
+    }
+
+    public static Question<List<WebElementFacade>> theElementsOf(Target target) {
+        return Question.about("the number of  " + target.getName())
+                .answeredBy(target::resolveAllFor);
     }
 }
