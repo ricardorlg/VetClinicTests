@@ -57,7 +57,7 @@ Business Need: The Pet Clinic should allow to register a pet owner in the system
   Rule: The system should not allow to register an owner with same personal information of an existing owner
 
     @Web
-    Example: the one where Ricardo tries to register a new owner using the Web form with an existing owner
+    Example: the one where Ricardo tries to register an already existing owner using the Web form
       Given Kelly has already registered an owner with the following information
         | firstName | lastName | address           | city      | phone      |
         | Josh      | Long     | prinsengracht 263 | Amsterdam | 0687234567 |
@@ -70,7 +70,7 @@ Business Need: The Pet Clinic should allow to register a pet owner in the system
             """
 
     @Api
-    Example: the one where Ricardo tries to register a new owner using the clinic API with an existing owner
+    Example: the one where Ricardo tries to register an already existing owner using the clinic API
       Given Ricardo has already registered an owner with the following information
         | firstName | lastName | address          | city      | phone      |
         | Peter     | Anderson | nassaukade 161-2 | Amsterdam | 0629446321 |

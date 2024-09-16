@@ -1,16 +1,14 @@
 package com.ricardorlg.vetclinic.stepdefinitions;
 
 import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
-import com.ricardorlg.vetclinc.tasks.Navigate;
+import com.ricardorlg.vetclinc.tasks.Navigates;
 import com.ricardorlg.vetclinc.tasks.RegisterOwner;
 import com.ricardorlg.vetclinc.utils.Constants;
-import com.ricardorlg.vetclinc.utils.Utils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.RememberThat;
-import net.serenitybdd.screenplay.actors.OnStage;
 
 import static com.ricardorlg.vetclinc.questions.OwnerQuestions.theDisplayedOwnersTable;
 import static com.ricardorlg.vetclinc.utils.Utils.actorTakesTheSpotlight;
@@ -25,7 +23,7 @@ public class OwnerRegistrationSteps {
     @Given("{actor} wants to register a new owner using the web application")
     public void wantsToRegisterANewOwner(Actor actor) {
         actor.attemptsTo(
-                Navigate.toTheOwnerRegistrationPage(),
+                Navigates.toTheOwnerRegistrationPage(),
                 RememberThat.theValueOf(Constants.USE_WEB_FORM_KEY).is(true)
         );
     }

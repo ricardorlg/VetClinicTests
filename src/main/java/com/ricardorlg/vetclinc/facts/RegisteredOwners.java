@@ -32,7 +32,10 @@ public final class RegisteredOwners implements Fact {
 
     @Override
     public void setup(Actor actor) {
-        lock.lock();
+        boolean isUsingFeatureLevelContainer = actor.recall(Constants.IS_USING_FEATURE_LEVEL_CONTAINER);
+        if (isUsingFeatureLevelContainer) {
+            lock.lock();
+        }
         try {
             var currentRegisteredOwners = actor.asksFor(theRegisteredOwnersInTheSystem());
             for (var owner : registeredOwners) {
@@ -45,12 +48,12 @@ public final class RegisteredOwners implements Fact {
                             Check.whether(TheMemory.withKey(Constants.USE_WEB_FORM_KEY).isPresent())
                                     .andIfSo(
                                             Forget.theValueOf(Constants.USE_WEB_FORM_KEY),
-                                            RegisterOwner.withInformation(owner),
+                                            RegisterOwner.withInformation(owner).withNoReporting(),
                                             Ensure.silentlyThat(response -> response.statusCode(201)),
                                             RememberThat.theValueOf(Constants.USE_WEB_FORM_KEY).is(true)
                                     )
                                     .otherwise(
-                                            RegisterOwner.withInformation(owner),
+                                            RegisterOwner.withInformation(owner).withNoReporting(),
                                             Ensure.silentlyThat(response -> response.statusCode(201))
                                     ),
                             RememberThat.theValueOf(Constants.REGISTERED_OWNERS).is(registeredOwners)
@@ -60,7 +63,9 @@ public final class RegisteredOwners implements Fact {
         } catch (Throwable e) {
             throw new TestCompromisedException("An error occurred while registering the owners", e);
         } finally {
-            lock.unlock();
+            if (isUsingFeatureLevelContainer) {
+                lock.unlock();
+            }
         }
     }
 }

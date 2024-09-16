@@ -47,7 +47,7 @@ public class ManageOwnersSteps {
     public void wantsToFilterTheDataOfTheOwnersDisplayedInTheOwnersPage(Actor actor) {
         actor.attemptsTo(
                 RememberThat.theValueOf(Constants.USE_WEB_FORM_KEY).is(true),
-                Navigate.toTheAllOwnersPage(),
+                Navigates.toTheAllOwnersPage(),
                 Wait.until(theDisplayedOwnersTable(), is(not(empty())))
                         .forNoMoreThan(20)
                         .seconds()

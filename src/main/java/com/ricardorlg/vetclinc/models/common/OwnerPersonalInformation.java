@@ -13,9 +13,6 @@ public record OwnerPersonalInformation(
         String city,
         String telephone
 ) {
-    public String fullName() {
-        return String.format("%s %s", firstName, lastName);
-    }
 
     public OwnerRowInformation toOwnerRowInformation() {
         return new OwnerRowInformation(

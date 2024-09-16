@@ -1,5 +1,6 @@
 package com.ricardorlg.vetclinc.questions;
 
+import com.ricardorlg.vetclinc.utils.Constants;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.actions.AlertText;
@@ -31,5 +32,13 @@ public final class CommonWebQuestions {
     public static Question<List<WebElementFacade>> theElementsOf(Target target) {
         return Question.about("the number of  " + target.getName())
                 .answeredBy(target::resolveAllFor);
+    }
+
+    public static Question<Boolean> theCurrentPageIs(String pageName) {
+        return Question.about("the current page is " + pageName)
+                .answeredBy(actor -> {
+                    String currentPageTitle = actor.recall(Constants.CURRENT_PAGE_TITLE);
+                    return pageName.equalsIgnoreCase(currentPageTitle);
+                });
     }
 }

@@ -1,6 +1,7 @@
 package com.ricardorlg.vetclinic.stepdefinitions;
 
 import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
+import com.ricardorlg.vetclinc.models.common.PetInformation;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.ParameterType;
 import net.serenitybdd.screenplay.Actor;
@@ -28,6 +29,15 @@ public class ParameterTypes {
                 parseEntry(entry.get("address")),
                 parseEntry(entry.get("city")),
                 parseEntry(entry.get("phone"))
+        );
+    }
+
+    @DataTableType(replaceWithEmptyString = "[empty]")
+    public PetInformation petInformation(Map<String, String> entry) {
+        return new PetInformation(
+                parseEntry(entry.get("name")),
+                parseEntry(entry.get("birthDate")),
+                parseEntry(entry.get("type"))
         );
     }
 
