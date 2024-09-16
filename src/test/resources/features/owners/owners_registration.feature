@@ -73,7 +73,7 @@ Business Need: The Pet Clinic should allow to register a pet owner in the system
     Example: the one where Ricardo tries to register a new owner using the clinic API with an existing owner
       Given Ricardo has already registered an owner with the following information
         | firstName | lastName | address          | city      | phone      |
-        | Peter     | Anderson | nassaukade 161-2 | Amsterdam | 0629416321 |
+        | Peter     | Anderson | nassaukade 161-2 | Amsterdam | 0629446321 |
       When Kelly sends a registration request using the clinic API with the same data used by Ricardo
       Then the system should return a 400 response code
       And the response body should include the error with code AlreadyExists and field owner

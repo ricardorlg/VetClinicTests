@@ -23,7 +23,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 @SuppressWarnings("unused")
 public class CommonStepDefinitions {
 
-    @And("{actor} has registered the following owners in the system")
+    @And("{actor} has registered the following owner(s) in the system")
     public void theFollowingOwnersAreRegisteredInTheSystem(Actor actor, List<OwnerPersonalInformation> ownersList) {
         actor.has(RegisteredOwners.from(ownersList));
     }

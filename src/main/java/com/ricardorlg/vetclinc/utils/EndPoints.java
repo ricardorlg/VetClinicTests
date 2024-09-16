@@ -2,7 +2,8 @@ package com.ricardorlg.vetclinc.utils;
 
 public enum EndPoints {
     REGISTER_OWNER_PATH("/owners"),
-    ALL_OWNERS_PATH("/owners/list");
+    ALL_OWNERS_PATH("/owners/list"),
+    GET_OWNER_BY_ID_PATH("/owners/{ownerId}");
 
     private final String path;
 
