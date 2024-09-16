@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#scenario-results").DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {type: 'time-elapsed-dhms', targets: 4}
+                ]
+            })
+            $("#manual-scenario-results").DataTable({
+                "order": [[0, "asc",], [1, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+            })
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"The Pet Clinic should allow to manage the owners information","type":"feature","href":"c57c45b354ed670c161130c3c84e2d7817099697bc779b3d497bbec0545815f2.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-x-circle-fill failure-icon \u0027 title\u003d\u0027FAILURE\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e6 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e6 test cases\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                levels: 10,
+                showTags: true,
+                expandIcon: "bi bi-journal-plus",
+                collapseIcon: "bi bi-journal-minus",
+                emptyIcon: "bi bi-journal"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">BackBase QA Challenge</span>
+                <span class="projectsubtitle">attempted by Ricardo Larrahondo</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+                > <a href="92abe36683791b47fe7962f99f72a8a2200ff9ae88472b08738dffd95425ea54.html">Owners</a>
+
+
+                    > <span class="truncate-40">The pet clinic should allow to manage the owners information</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 16-09-2024 08:50</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+
+                                    <div class="col-sm-12">
+                                        <span>
+                                            <h2><i class="bi bi-book"></i> Feature: The pet clinic should allow to manage the owners information</h2>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                As a VetClinic Manager<br />
+I would like to be able to manage the owners information<br />
+In order to handle all the pets and visits made by them
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="bi bi-journal-text"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="bi bi-speedometer"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+
+                                                <!-- REQUIREMENTS PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
+                                                    </div>
+
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <!--- TOC --->
+                                                <div id="toc">
+                                                    <h3>Overview</h3>
+                                                    <table class="table" id="toc-table">
+                                                                <tr>
+                                                                    <td class="rule-toc-entry" colspan="2">
+                                                                        <a href="#bab84742-aff5-46f8-8f6e-32cb560e411a"
+                                                                           title="View scenario details for this rule">
+                                                                            Rule: The system should allow to list all the owners registered in the system
+                                                                    </td>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#c6365e8ba0f59c9a5b78303e81e691b81838dfc477eb84b73641228a776c970b"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Example: the one where Ricardo wants to see the list of all owners using the clinic API
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="3a5458927690498e4baee51a77e71aab7dfa22637ccb7b0869dcf2f18e1caf92.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="3a5458927690498e4baee51a77e71aab7dfa22637ccb7b0869dcf2f18e1caf92.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                <tr>
+                                                                    <td class="rule-toc-entry" colspan="2">
+                                                                        <a href="#bb1344d1-dd09-4de1-b918-da5d88d6ccef"
+                                                                           title="View scenario details for this rule">
+                                                                            Rule: The system should allow to access the personal information of an owner
+                                                                    </td>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#340e4eacdf81621ef8b458c15bc7ea81d180975f65146bd7557514e27ce793f7"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Example: the one where Ricardo wants to see the personal information of an owner using the Web application
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="51be752348cd1134a6e1ad96bf5c8d4e3e610e5694c69820b086eed98f37b4c7.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="51be752348cd1134a6e1ad96bf5c8d4e3e610e5694c69820b086eed98f37b4c7.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#ff4ea5dd562d4d20bd4aad906f4f872530362bea13066476e44b963de768f5e2"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Example: the one where Ricardo wants to see the personal information of an owner with pets and visits using the Web application
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="426573115080dd7c4aadfcecf486d690bd0d0a5b5918c44da12c40a35215e9da.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="426573115080dd7c4aadfcecf486d690bd0d0a5b5918c44da12c40a35215e9da.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#9c925aa798a40a55880c0e479cdd8b6204562857bda733249fa7f07f270a016d"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Example: the one where Ricardo wants to see the personal information of an owner using the clinic API
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="f9fe367405f929065489041471f95716f560f3b009ccb5e8d9be1cc012a03cf7.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="f9fe367405f929065489041471f95716f560f3b009ccb5e8d9be1cc012a03cf7.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                <tr>
+                                                                    <td class="rule-toc-entry" colspan="2">
+                                                                        <a href="#d6d2d732-40c6-465c-b1b5-da50ca144b50"
+                                                                           title="View scenario details for this rule">
+                                                                            Rule: The system should allow to update the personal information of an owner
+                                                                    </td>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#ff02baf456d37422e189c55cb306115a09acdf358d6695192ca20dc283221116"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Example: the one where Ricardo wants to update the personal information of an owner using the Web application
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="e0c1a9283b5bbf8cb502f00a12889b4291ec52dd47d23a64a04c38513b43eff9.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="e0c1a9283b5bbf8cb502f00a12889b4291ec52dd47d23a64a04c38513b43eff9.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                <tr>
+                                                                    <td class="rule-toc-entry" colspan="2">
+                                                                        <a href="#a9aac678-74bf-466d-bfa3-633532a09228"
+                                                                           title="View scenario details for this rule">
+                                                                            Rule: The system should allow to delete an owner registered in the system
+                                                                    </td>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#11ab4b159d5be0e3f82b0904b2208eb2a5c6ff312a540c1a795003822b83f355"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Example: the one where Ricardo wants to delete an owner using the clinic API
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="f0102ed5313e0013fa56981473e09315096be0a9fe443b6b3c5a964b08c8a9f0.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="f0102ed5313e0013fa56981473e09315096be0a9fe443b6b3c5a964b08c8a9f0.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                    </table>
+                                                </div>
+                                                <!--- END OF TOC --->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3>Scenarios</h3>
+
+                                                    <a name="bab84742-aff5-46f8-8f6e-32cb560e411a"></a>
+                                                        <div class="rule-title">
+                                                            Rule: The system should allow to list all the owners registered in the system</div>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="c6365e8ba0f59c9a5b78303e81e691b81838dfc477eb84b73641228a776c970b">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="3a5458927690498e4baee51a77e71aab7dfa22637ccb7b0869dcf2f18e1caf92.html"
+                                                                               title="View test results">Example: the one where Ricardo wants to see the list of all owners using the clinic API</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">Api (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <p>When Ricardo sends a request to list all the owners using the clinic API</p>
+                                                                    <p>Then the system should return a 200 response code</p>
+                                                                    <p>And the response body should include the default owners registered in the system</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <a name="bb1344d1-dd09-4de1-b918-da5d88d6ccef"></a>
+                                                        <div class="rule-title">
+                                                            Rule: The system should allow to access the personal information of an owner</div>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="340e4eacdf81621ef8b458c15bc7ea81d180975f65146bd7557514e27ce793f7">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="51be752348cd1134a6e1ad96bf5c8d4e3e610e5694c69820b086eed98f37b4c7.html"
+                                                                               title="View test results">Example: the one where Ricardo wants to see the personal information of an owner using the Web application</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.html">Web (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <div class="scenario-text">
+                                                                        <i class="bi bi-info-circle"></i> John Thompson is a new owner registered in the system so he doesn't have any pets or visits yet
+                                                                    </div>
+                                                                    <p><p>Given Kelly has registered the following owner in the system</p>
+<table>
+<thead>
+<tr><th>firstName</th><th>lastName</th><th>address</th><th>city</th><th>phone</th></tr>
+</thead>
+<tbody>
+<tr><td>John</td><td>Thompson</td><td>north-hollandstraat 130-2</td><td>Copenhagen</td><td>4534567890</td></tr>
+</tbody>
+</table>
+</p>
+                                                                    <p>And Ricardo wants to see the personal information of John Thompson using the Web application</p>
+                                                                    <p>When he selects the owner in the Owners page</p>
+                                                                    <p>Then he should see the owner information registered by Kelly</p>
+                                                                    <p>And the pets and visits information should be empty</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="ff4ea5dd562d4d20bd4aad906f4f872530362bea13066476e44b963de768f5e2">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="426573115080dd7c4aadfcecf486d690bd0d0a5b5918c44da12c40a35215e9da.html"
+                                                                               title="View test results">Example: the one where Ricardo wants to see the personal information of an owner with pets and visits using the Web application</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.html">Web (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <div class="scenario-text">
+                                                                        <i class="bi bi-info-circle"></i> Jean Coleman is an owner registered in the system with pets and visits
+                                                                    </div>
+                                                                    <p>Given Ricardo wants to see the personal information of Jean Coleman using the Web application</p>
+                                                                    <p>When he selects the owner in the Owners page</p>
+                                                                    <p>Then he should see the registered information of Jean Coleman</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="9c925aa798a40a55880c0e479cdd8b6204562857bda733249fa7f07f270a016d">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="f9fe367405f929065489041471f95716f560f3b009ccb5e8d9be1cc012a03cf7.html"
+                                                                               title="View test results">Example: the one where Ricardo wants to see the personal information of an owner using the clinic API</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">Api (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <p>When Ricardo sends a request to see all the information of  the owner with ID 1 using the clinic API</p>
+                                                                    <p>Then the system should return a 200 response code</p>
+                                                                    <p>And the response body should include all the registered information of the owner including the pets and visits</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <a name="d6d2d732-40c6-465c-b1b5-da50ca144b50"></a>
+                                                        <div class="rule-title">
+                                                            Rule: The system should allow to update the personal information of an owner</div>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="ff02baf456d37422e189c55cb306115a09acdf358d6695192ca20dc283221116">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="e0c1a9283b5bbf8cb502f00a12889b4291ec52dd47d23a64a04c38513b43eff9.html"
+                                                                               title="View test results">Example: the one where Ricardo wants to update the personal information of an owner using the Web application</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.html">Web (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <p><p>Given Kelly has registered the following owner in the system</p>
+<table>
+<thead>
+<tr><th>firstName</th><th>lastName</th><th>address</th><th>city</th><th>phone</th></tr>
+</thead>
+<tbody>
+<tr><td>Susan</td><td>White</td><td>central-district 23</td><td>Amsterdam</td><td>0673423456</td></tr>
+</tbody>
+</table>
+</p>
+                                                                    <p><p>When Ricardo updates the personal information of Susan White using the Web application to</p>
+<table>
+<thead>
+<tr><th>firstName</th><th>lastName</th><th>address</th><th>city</th><th>phone</th></tr>
+</thead>
+<tbody>
+<tr><td>Susan</td><td>Black</td><td>central-district 29</td><td>Chicago</td><td>0123423456</td></tr>
+</tbody>
+</table>
+</p>
+                                                                    <p>Then the owner should be updated successfully</p>
+                                                                    <p>And the system should display the updated information</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <a name="a9aac678-74bf-466d-bfa3-633532a09228"></a>
+                                                        <div class="rule-title">
+                                                            Rule: The system should allow to delete an owner registered in the system</div>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="11ab4b159d5be0e3f82b0904b2208eb2a5c6ff312a540c1a795003822b83f355">
+                                                            <div class="scenario-docs card-header failure"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="f0102ed5313e0013fa56981473e09315096be0a9fe443b6b3c5a964b08c8a9f0.html"
+                                                                               title="View test results">Example: the one where Ricardo wants to delete an owner using the clinic API</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">Api (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <p><p>Given Kelly has registered the following owner in the system</p>
+<table>
+<thead>
+<tr><th>firstName</th><th>lastName</th><th>address</th><th>city</th><th>phone</th></tr>
+</thead>
+<tbody>
+<tr><td>Daniela</td><td>Smith</td><td>new-york-street 123</td><td>New York</td><td>124219862</td></tr>
+</tbody>
+</table>
+</p>
+                                                                    <p>When Ricardo sends a request to delete Daniela Smith using the clinic API</p>
+                                                                    <p>Then the system should return a 200 response code</p>
+                                                                    <p>And the owner should not be listed in the system anymore</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+                                                <!-- TEST RESULT PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                                    </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
+                                                <!-- Severity bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="severityChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
+
+                                                <!-- Duration bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="durationChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>6</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td> 1m 50s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>6</td>
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>806ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-person"></i> Number of Manual Test Cases
+                    </td>
+                    <td>0</td>
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>55s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td>Sep 16, 2024 08:50:30</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>35s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td>Sep 16, 2024 08:52:20</td>
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Total
+                        Execution Time
+                    </td>
+                    <td> 3m 34s</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+                                                <h3><i class="bi bi-gear"></i> Automated Tests</h3>
+
+                                                    <table class="scenario-result-table table" id="scenario-results">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>feature</th>
+                                                            <th class="test-name-column">Scenario</th>
+                                                            <th>Context</th>
+                                                            <th>Steps</th>
+                                                            <th>Started</th>
+                                                            <th>Total Duration</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">The Pet Clinic should allow to manage the owners information</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="3a5458927690498e4baee51a77e71aab7dfa22637ccb7b0869dcf2f18e1caf92.html">the one where Ricardo wants to see the list of all owners using the clinic API</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>08:51:26</td>
+                                                                    <td>859ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">The Pet Clinic should allow to manage the owners information</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="51be752348cd1134a6e1ad96bf5c8d4e3e610e5694c69820b086eed98f37b4c7.html">the one where Ricardo wants to see the personal information of an owner using the Web application</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>08:51:27</td>
+                                                                    <td>53s 561ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">The Pet Clinic should allow to manage the owners information</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="426573115080dd7c4aadfcecf486d690bd0d0a5b5918c44da12c40a35215e9da.html">the one where Ricardo wants to see the personal information of an owner with pets and visits using the Web application</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>08:51:27</td>
+                                                                    <td>50s 172ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">The Pet Clinic should allow to manage the owners information</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="f9fe367405f929065489041471f95716f560f3b009ccb5e8d9be1cc012a03cf7.html">the one where Ricardo wants to see the personal information of an owner using the clinic API</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>08:51:26</td>
+                                                                    <td>806ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">The Pet Clinic should allow to manage the owners information</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="e0c1a9283b5bbf8cb502f00a12889b4291ec52dd47d23a64a04c38513b43eff9.html">the one where Ricardo wants to update the personal information of an owner using the Web application</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>08:51:24</td>
+                                                                    <td>55s 690ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result FAILURE">
+                                                                    <td>
+                                                                            <a href="#">The Pet Clinic should allow to manage the owners information</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="f0102ed5313e0013fa56981473e09315096be0a9fe443b6b3c5a964b08c8a9f0.html">the one where Ricardo wants to delete an owner using the clinic API</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>08:50:30</td>
+                                                                    <td>53s 665ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a> <span style="display:none">FAILURE</span>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="bi bi-hand-index-thumb"></i> Manual Tests</h3>
+
+                                                    No manual tests were recorded
+
+                                            </div>
+                                        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;3
+                                    </span>
+                                    </a>
+                                    <a href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Web&nbsp;&nbsp;&nbsp;3
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="46b54d9084ba9783130da16408afb27a4e4620f6bd966e731510c7395b9ddf5c.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome, Linux&nbsp;&nbsp;&nbsp;6
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Error</h5>
+                            <div>
+                                    <a href="f6407feed55253c8001fc9510ae84faad1c0614824787775590646b8db680c61.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Assertion Error&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="version">Serenity BDD version 4.2.0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Chart data -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const outcomeChartCtx = document.getElementById('resultChart');
+
+        // Options define for display value on top of bars
+        const outcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "71cf338b538ae5940ef406276673bb4898ce2c8f4f38ffc5982d913d0fc26e0c.html" },
+            { title: 'Pending Test Cases', link: "b9a88b6ba86f011e83c855f11d5f1d7a97df2555dfd4100a8d4504fadc4c3014.html" },
+            { title: 'Ignored Test Cases', link: "ce8de18dfd7da88eb484e7a88f239922f56c2f65212a32b77f2d8d5493e458a7.html" },
+            { title: 'Skipped Test Cases', link: "704082502be96936905bb5be5e32c8f904ad041cc6a0514b4ea9975a83d891d2.html" },
+            { title: 'Aborted Test Cases',  link: "81e60d57431f70cffdd8e779f748fd73d5f48da4f22f51dea7c71fc05b695f9e.html"},
+            { title: 'Failed Test Cases', link: "48d380090055f37ff5cef728100495f9466b726938325410d166a4b0f05fbf39.html"  },
+            { title: 'Broken Test Cases', link: "88d1c4363a8d90e06649da4b5eef1615c6ef5c2e4d1f8d57d9b875985a530463.html"    },
+            { title: 'Compromised Test Cases',  link: "c90205795d2a726cdff5cdebcec846d7c1db104a8dd7d43f4baf59c56a96fb79.html" },
+        ]
+        const outcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Test Results',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 5}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 1}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const outcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const outcomeChart = new Chart(outcomeChartCtx, {
+            type: 'doughnut',
+            data: outcomeData,
+            options: outcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "83%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function clickHandler(click) {
+            const points = outcomeChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(outcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        outcomeChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END PIE CHART -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const requirementsChartCtx = document.getElementById('requirementChart');
+
+        // Options define for display value on top of bars
+        const requirementsOutcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "71cf338b538ae5940ef406276673bb4898ce2c8f4f38ffc5982d913d0fc26e0c.html" },
+            { title: 'Pending Test Cases', link: "b9a88b6ba86f011e83c855f11d5f1d7a97df2555dfd4100a8d4504fadc4c3014.html" },
+            { title: 'Ignored Test Cases', link: "ce8de18dfd7da88eb484e7a88f239922f56c2f65212a32b77f2d8d5493e458a7.html" },
+            { title: 'Skipped Test Cases', link: "704082502be96936905bb5be5e32c8f904ad041cc6a0514b4ea9975a83d891d2.html" },
+            { title: 'Aborted Test Cases',  link: "81e60d57431f70cffdd8e779f748fd73d5f48da4f22f51dea7c71fc05b695f9e.html"},
+            { title: 'Failed Test Cases', link: "48d380090055f37ff5cef728100495f9466b726938325410d166a4b0f05fbf39.html"  },
+            { title: 'Broken Test Cases', link: "88d1c4363a8d90e06649da4b5eef1615c6ef5c2e4d1f8d57d9b875985a530463.html"    },
+            { title: 'Compromised Test Cases',  link: "c90205795d2a726cdff5cdebcec846d7c1db104a8dd7d43f4baf59c56a96fb79.html" },
+            { title: 'Undefined Test Cases',  link: "" },
+        ]
+        const requirementsOutcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Feature Coverage',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 5}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 1}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const requirementsOutcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const requirementsChart = new Chart(requirementsChartCtx, {
+            type: 'doughnut',
+            data: requirementsOutcomeData,
+            options: requirementsOutcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "83%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function reqsClickHandler(click) {
+            const points = requirementsChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length && requirementsOutcomeDetailsReports[firstPoint.index].link) {
+                const firstPoint = points[0];
+                window.open(requirementsOutcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        requirementsChartCtx.onclick = reqsClickHandler;
+    </script>
+    <!-- END PIE CHART -->
+
+    <!-- SUMMARY BAR CHART -->
+    <script>
+
+        // The Severity bar chart
+        const severityChartCtx = document.getElementById('severityChart');
+
+        // Options define for display value on top of bars
+
+        const severityDetailsReports = [
+            { title: 'Passing Scenarios', link: "71cf338b538ae5940ef406276673bb4898ce2c8f4f38ffc5982d913d0fc26e0c.html" },
+            { title: 'Pending Scenarios', link: "b9a88b6ba86f011e83c855f11d5f1d7a97df2555dfd4100a8d4504fadc4c3014.html" },
+            { title: 'Ignored Scenarios', link: "ce8de18dfd7da88eb484e7a88f239922f56c2f65212a32b77f2d8d5493e458a7.html" },
+            { title: 'Skipped Scenarios', link: "704082502be96936905bb5be5e32c8f904ad041cc6a0514b4ea9975a83d891d2.html" },
+            { title: 'Aborted Scenarios',  link: "81e60d57431f70cffdd8e779f748fd73d5f48da4f22f51dea7c71fc05b695f9e.html"},
+            { title: 'Failed Scenarios', link: "48d380090055f37ff5cef728100495f9466b726938325410d166a4b0f05fbf39.html"  },
+            { title: 'Broken Scenarios', link: "88d1c4363a8d90e06649da4b5eef1615c6ef5c2e4d1f8d57d9b875985a530463.html"    },
+            { title: 'Compromised Scenarios',  link: "c90205795d2a726cdff5cdebcec846d7c1db104a8dd7d43f4baf59c56a96fb79.html" },
+        ]
+        const severityData = {
+            labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
+            datasets: [
+                {
+                    label: 'Automated',
+                    data: [5,0,0,0,0,1,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Manual',
+                    data: [0,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.25)','rgba(165, 199, 238, 0.25)','rgba(168, 168, 168, 0.25)','rgba(238, 224, 152, 0.375)','rgba(255, 153, 102, 0.25)','rgba(255, 22, 49, 0.25)','rgba(255, 97, 8, 0.25)','rgba(255, 104, 255, 0.25)','rgba(83, 50, 168, 0.25)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+
+            ]
+        }
+        const severityOptions = {
+            responsive: true,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value === 0) {
+                            return '';
+                        } else {
+                            return value;
+                        }
+                    },
+                }
+            }
+        }
+        const severityChart = new Chart(severityChartCtx, {
+            type: 'bar',
+            data: severityData,
+            options: severityOptions
+        });
+
+        function clickHandler(click) {
+            const points = severityChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(severityDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        severityChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END SUMMARY CHART -->
+
+    <!-- DURATION CHART -->
+    <script>
+
+        // Options define for display value on top of bars
+        const durationDetailsReports = [
+                {title: "Under 1 second", link: "7dea573eef209d4f99b12e74e474c461d056e901de3c11060b27144508ac4ed4.html"},
+                {title: "1 to 10 seconds", link: "a04311ad086eb7588c02e1b2a5bcbf52a95775dd966e2f03eefabbe27a36af88.html"},
+                {title: "10 to 30 seconds", link: "b8b320115f69d62a21490646055d08eb4dd86ff50ac739a6d293c07207a9f32f.html"},
+                {title: "30 to 60 seconds", link: "045bda530670a775abb2347a465385e28da79bdb2ee24a057573d87e08e164b0.html"},
+                {title: "1 to 2 minutes", link: "71f826ec4a439cba881e18de6090a28458a27329873f752b22c3bf3c89529948.html"},
+                {title: "2 to 5 minutes", link: "e807805d04014f6c599a21af15434b1654a4ebc68986826bf4c27dd5238bf6cf.html"},
+                {title: "5 to 10 minutes", link: "d004c4a0e902cee64cec9f0ea640b2c66ae43fc3dfc5dc713f903f6d8591a9d8.html"},
+                {title: "10 minutes or over", link: "c27185a5b5dcad88b562ec46ea635aeb23c968dd4f72844cbecd3e3a5a49e5a1.html"},
+        ]
+        // The Severity bar chart
+        const durationChartCtx = document.getElementById('durationChart');
+
+        // Options define for display value on top of bars
+
+        const durationData = {
+            labels: ['Under 1 second','1 to 10 seconds','10 to 30 seconds','30 to 60 seconds','1 to 2 minutes','2 to 5 minutes','5 to 10 minutes','10 minutes or over'],
+            datasets: [{
+                label: 'Number of tests per duration',
+                fill: false,
+                data: ['2','0','0','4','0','0','0','0'],
+                backgroundColor: 'rgba(83, 146, 255,0.5)',
+                borderColor: 'rgba(83, 146, 255, 1)',
+            }]
+        }
+        const durationOptions = {
+            responsive: true,
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value > 0) {
+                            return value;
+                        } else {
+                            return '';
+                        }
+                    },
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: (data) => {
+                            return data.parsed.y + ' tests'
+                        }
+                    },
+                },
+            },
+        }
+
+        const durationChart = new Chart(durationChartCtx, {
+            type: 'bar',
+            data: durationData,
+            options: durationOptions
+        });
+
+        function durationClickHandler(click) {
+            const points = durationChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(durationDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+
+        durationChartCtx.onclick = durationClickHandler;
+    </script>
+    <!-- END DURATION CHART -->
+</body>
+</html>
