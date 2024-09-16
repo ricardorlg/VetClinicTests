@@ -21,17 +21,17 @@ public class RegisterOwner implements Task, IsHidden, CanBeSilent {
     private final OwnerPersonalInformation ownerInformation;
     private final boolean withNoReporting;
 
-    public RegisterOwner(OwnerPersonalInformation ownerInformation,boolean withNoReporting) {
+    public RegisterOwner(OwnerPersonalInformation ownerInformation, boolean withNoReporting) {
         this.ownerInformation = ownerInformation;
         this.withNoReporting = withNoReporting;
     }
 
     public static RegisterOwner withInformation(OwnerPersonalInformation ownerInformation) {
-        return Tasks.instrumented(RegisterOwner.class, ownerInformation,false);
+        return Tasks.instrumented(RegisterOwner.class, ownerInformation, false);
     }
 
     public RegisterOwner withNoReporting() {
-        return Tasks.instrumented(RegisterOwner.class, ownerInformation,true);
+        return Tasks.instrumented(RegisterOwner.class, ownerInformation, true);
     }
 
     @Override
@@ -58,14 +58,17 @@ public class RegisterOwner implements Task, IsHidden, CanBeSilent {
     }
 
     private Performable registerOwnerUsingApi() {
+        var postAction = Post.to(REGISTER_OWNER_PATH.getPath())
+                .with(request -> {
+                            request.header("Content-Type", "application/json");
+                            request.body(ownerInformation);
+                            return request;
+                        }
+                );
         return Task.where("{0} registers a new Owner using the API",
-                Post.to(REGISTER_OWNER_PATH.getPath())
-                        .with(request -> {
-                                    request.header("Content-Type", "application/json");
-                                    request.body(ownerInformation);
-                                    return request;
-                                }
-                        )
+                Check.whether(withNoReporting)
+                        .andIfSo(postAction.withNoReporting())
+                        .otherwise(postAction)
         );
     }
 

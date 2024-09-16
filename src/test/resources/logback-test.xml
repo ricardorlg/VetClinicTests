@@ -11,7 +11,10 @@
     <logger name="net.serenitybdd" level="INFO"/>
     <logger name="net.thucydides" level="WARN"/>
     <logger name="org.testcontainers" level="WARN"/>
-    <logger name="tc" level="WARN"/>
+    <logger name="org.openqa.selenium" level="WARN"/>
+    <logger name="net.serenitybdd.core.webdriver.driverproviders" level="WARN"/>
+    <logger name="org.openqa.selenium.devtools.CdpVersionFinder" level="OFF" />
+    <logger name="tc" level="OFF"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>

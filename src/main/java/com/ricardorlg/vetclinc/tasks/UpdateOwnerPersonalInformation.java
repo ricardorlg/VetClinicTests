@@ -46,6 +46,7 @@ public class UpdateOwnerPersonalInformation implements Task {
                 WaitUntil.the(OwnerPage.EDIT_OWNER_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(OwnerPage.EDIT_OWNER_BUTTON),
                 WaitUntil.the(EditOwnerPage.FIRST_NAME_FIELD, hasValue(ownerFirstName)).forNoMoreThan(10).seconds(),
+                RememberThat.theValueOf(Constants.CURRENT_PAGE_TITLE).is(EditOwnerPage.PAGE_TITLE),
                 Enter.theValue(newOwnerPersonalInformation.firstName()).into(EditOwnerPage.FIRST_NAME_FIELD),
                 Enter.theValue(newOwnerPersonalInformation.lastName()).into(EditOwnerPage.LAST_NAME_FIELD),
                 Enter.theValue(newOwnerPersonalInformation.address()).into(EditOwnerPage.ADDRESS_FIELD),

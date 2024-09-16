@@ -9,7 +9,6 @@ import net.serenitybdd.screenplay.waits.Wait;
 import static com.ricardorlg.vetclinc.questions.OwnerQuestions.theDisplayedOwnersTable;
 import static com.ricardorlg.vetclinc.utils.Constants.OWNER_TO_SELECT;
 import static org.hamcrest.Matchers.*;
-import static org.hamcrest.collection.IsEmptyCollection.empty;
 
 public class SearchOwnerInOwnersTable implements Task {
     private final String ownerFirstName;
@@ -28,7 +27,7 @@ public class SearchOwnerInOwnersTable implements Task {
     @Step("{0} searches for the owner with first name '#ownerFirstName' and last name '#ownerLastName'")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Navigate.toTheAllOwnersPage(),
+                Navigates.toTheAllOwnersPage(),
                 Wait.until(theDisplayedOwnersTable(), hasSize(greaterThan(2)))
                         .forNoMoreThan(20)
                         .seconds(),
