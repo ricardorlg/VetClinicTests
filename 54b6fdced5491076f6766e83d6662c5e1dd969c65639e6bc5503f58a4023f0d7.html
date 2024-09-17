@@ -149,7 +149,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 17-09-2024 05:10</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 17-09-2024 05:18</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -175,13 +175,6 @@
                                     <span class="badge example-tag tag-badge" style="background:default;">
                                     <i class="bi bi-tag-fill"></i>&nbsp;
                                         <a class="tagLink" style="background:default;"
-                                           href="5417f11e3fb3d32742630bac1a070d9b25e2589180495af21e4eece9142805c4.html">Driver Configuration Error
-                                              (error)
-                                        </a>
-                                </span>
-                                    <span class="badge example-tag tag-badge" style="background:default;">
-                                    <i class="bi bi-tag-fill"></i>&nbsp;
-                                        <a class="tagLink" style="background:default;"
                                            href="5698da923f295f46ce5ab64ced2311fc60caa4e36b32112606d3adcfdce3f60b.html">30 To 60 Seconds
                                               (Duration)
                                         </a>
@@ -202,9 +195,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
-                                <span class="error-color">
+                                <span class="success-color">
                                     the one where Kelly wants to register a new visit on a pet with already registered visits using the Web application
                                         <span class="related-issue-title"></span>
                                 </span>
@@ -273,6 +266,7 @@
                     Steps
                 </th>
 
+                    <th width="150" class="greentext">Screenshots</th>
                 <th width="130" class="greentext">Outcome</th>
                 <th width="100" class="greentext"><i title="Duration" class="bi bi-stopwatch"></i></th>
             </tr>
@@ -299,8 +293,11 @@
                         </div>
                     </td>
 
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">258ms</span></td>
+                    <td width="100"><span class="top-level-step">777ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -321,15 +318,18 @@
                         </div>
                     </td>
 
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">936ms</span></td>
+                    <td width="100"><span class="top-level-step">719ms</span></td>
                 </tr>
-                <tr class="test-ERROR">
+                <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="2"></a>
                             <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon ' title='ERROR'></i></a>
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
 
@@ -343,102 +343,345 @@
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">ERROR</span></td>
-                    <td width="100"><span class="top-level-step">34s 989ms</span></td>
-                </tr>
-                    <tr class="test-ERROR">
-                        <td width="40">&nbsp</td>
-                        <td width="%" colspan="3" class="error-message-cell">
+                        <td width="160" class="SUCCESS-text">
 
-
-    <div style="display:block">
-        <div class="table">
-            <div class="row">
-                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">net.thucydides.core.webdriver.DriverConfigurationError: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</span>
-                </div>
-                <div class="col-sm-2">
-                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-3"
-                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
-                </div>
-             </div>
-        </div>
-    <div>
-
-    <!-- Details Section -->
-    <div class="row stacktrace-details">
-      <div class="col">
-        <div class="collapse multi-collapse" id="stacktraceModal-3">
-            <div class="card">
-                <div class="card-header">
-                    <h4>net.thucydides.core.webdriver.DriverConfigurationError </h4>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <pre>com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)<br />com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)<br />com.ricardorlg.vetclinc.tasks.RegisterVisit.performAs(RegisterVisit.java:38)<br />com.ricardorlg.vetclinic.stepdefinitions.VisitsManagementSteps.hasRegisteredTheFollowingVisitFor(VisitsManagementSteps.java:42)<br />✽.she has registered the following visit for Mew using the Web application(classpath:features/visits/visits_management.feature:30)<br /></pre>
-                    </div>
-
-                    <h4>
-                        Caused by: net.thucydides.core.webdriver.DriverConfigurationError
-                    </h4>
-                    <div>
-                            <pre>After several attempts, could not instantiate new WebDriver instance of type class org.openqa.selenium.chrome.ChromeDriver (Could not start a new session. Response code 500. Message: session not created: Chrome failed to start: exited normally.<br>  (session not created: DevToolsActivePort file doesn't exist)<br>  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.) <br>Host info: host: 'fv-az914-180', ip: '10.1.0.220'<br>Build info: version: '4.23.1', revision: '656257d8e9'<br>System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-1014-azure', java.version: '21.0.4'<br>Driver info: org.openqa.selenium.chrome.ChromeDriver<br>Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [no-sandbox, incognito, disable-default-apps, disable-gpu, disable-extensions, window-size=1920,1080, no-sandbox, incognito, disable-default-apps, disable-gpu, disable-extensions, window-size=1920,1080, remote-allow-origins=*], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, disable-popup-blocking], extensions: []}}]}]). See below for more details.</pre>
-                        <pre>com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java :25)<br />com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java :29)<br />com.ricardorlg.vetclinc.tasks.RegisterVisit.performAs(RegisterVisit.java :38)<br />com.ricardorlg.vetclinic.stepdefinitions.VisitsManagementSteps.hasRegisteredTheFollowingVisitFor(VisitsManagementSteps.java :42)<br /></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=0">
+                                    <img src="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         href="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
                         </td>
-                    </tr>
-                <tr class="test-SKIPPED">
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">35s 079ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="3"></a>
-                            <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
-                                </span>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection3 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block;">
                                 <span class="top-level-step">
                                                 When she registers the following visit for Mew using the Web application<br><table class='embedded'><thead><th>date</th><th>description</th></thead><tbody><tr><td>08-25-2019</td><td>snake is having problems with the skin</td></tr></tbody></table>
                                         </span>
+                            </a>
                             <span class="evidence">
                                 </span>
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
-                    <td width="100"><span class="top-level-step"></span></td>
-                </tr>
-                <tr class="test-SKIPPED">
+                        <td width="160" class="SUCCESS-text">
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=1">
+                                    <img src="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         href="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                                <i class="bi bi-arrow-right"></i>
 
-                    <td width="50" class="step-icon">
-                        <a name="4"></a>
-                            <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=9">
+                                    <img src="27750af0095dc3d212fef5b801fa6fabe3f24b759d89c9c279a7ce73885437e9.png"
+                                         href="27750af0095dc3d212fef5b801fa6fabe3f24b759d89c9c279a7ce73885437e9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">7s 553ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="3-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection3-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Kelly registers a new visit for the pet Mew
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=2">
+                                    <img src="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         href="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                                <i class="bi bi-arrow-right"></i>
+
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=8">
+                                    <img src="a8df79679f9572462f4b293fbf95e5738c87098bc1cefcc941970ce915f4dab1.png"
+                                         href="a8df79679f9572462f4b293fbf95e5738c87098bc1cefcc941970ce915f4dab1.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">5s 139ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-0-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
-                                <span class="top-level-step">
-                                                Then the visit should be displayed in the owner information page
+                                <span class="nested-group-step">
+                                                Kelly navigates to Hugh Jackman information page
                                         </span>
                             <span class="evidence">
                                 </span>
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
-                    <td width="100"><span class="top-level-step"></span></td>
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=3">
+                                    <img src="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         href="b9fb5dc2335fce30987ccd1dfdce6962e2826abc7a45f9d9fb67c67d62e93fd1.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">1s 215ms</span></td>
                 </tr>
-            <tr class="test-ERROR">
-                    <td colspan="2"></td>
-                <td width="130"><span class="top-level-step"><em>ERROR</em></span></td>
-                <td width="100"><span class="top-level-step"><em>36.21s</em></span></td>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-0-1"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Kelly clicks on the Add Visit button for Mew
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=4">
+                                    <img src="f3e18bdfb77fcb6c4efb325aa0efc76523491a2b59da774c83439ba464356d06.png"
+                                         href="f3e18bdfb77fcb6c4efb325aa0efc76523491a2b59da774c83439ba464356d06.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">1s 035ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-0-2"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Kelly enters '08-25-2019' into the visit date field
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=5">
+                                    <img src="4d4a47c7f9f3458eb232997da41f5fae823863c8c204575b84894366fea2abe5.png"
+                                         href="4d4a47c7f9f3458eb232997da41f5fae823863c8c204575b84894366fea2abe5.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">1s 084ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-0-3"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Kelly enters 'snake is having problems with the skin' into the description field
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=6">
+                                    <img src="426e12d56bd9f8475063d54234fac9809c6b7b580c0b177f40e9841380b85a72.png"
+                                         href="426e12d56bd9f8475063d54234fac9809c6b7b580c0b177f40e9841380b85a72.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">793ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-0-4"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Kelly clicks on 'Add New Visit' button
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=7">
+                                    <img src="a8df79679f9572462f4b293fbf95e5738c87098bc1cefcc941970ce915f4dab1.png"
+                                         href="a8df79679f9572462f4b293fbf95e5738c87098bc1cefcc941970ce915f4dab1.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">780ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="4"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection4 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection4')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Then the visit should be displayed in the owner information page
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="54b6fdced5491076f6766e83d6662c5e1dd969c65639e6bc5503f58a4023f0d7_screenshots.html#screenshots?screenshot=11">
+                                    <img src="27750af0095dc3d212fef5b801fa6fabe3f24b759d89c9c279a7ce73885437e9.png"
+                                         href="27750af0095dc3d212fef5b801fa6fabe3f24b759d89c9c279a7ce73885437e9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">2s 073ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection4" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="4-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                For Kelly: Then the displayed visits of the pet Mew should be a collection containing (snake is having problems with the skin visit on 2019-08-25)
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">553ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+            <tr class="test-SUCCESS">
+                    <td colspan="3"></td>
+                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                <td width="100"><span class="top-level-step"><em>47.78s</em></span></td>
             </tr>
 
         </table>
