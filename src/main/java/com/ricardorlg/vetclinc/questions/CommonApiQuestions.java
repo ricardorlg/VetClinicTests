@@ -4,6 +4,7 @@ import com.ricardorlg.vetclinc.models.api.ErrorResponse;
 import com.ricardorlg.vetclinc.models.api.ErrorsItem;
 import com.ricardorlg.vetclinc.models.api.owners.CompleteOwnerInformation;
 import com.ricardorlg.vetclinc.models.api.pets.CompletePetsInformation;
+import com.ricardorlg.vetclinc.models.api.vets.CompleteVeterinarianInformation;
 import com.ricardorlg.vetclinc.utils.EndPoints;
 import io.restassured.common.mapper.TypeRef;
 import net.serenitybdd.screenplay.Question;
@@ -36,6 +37,12 @@ public final class CommonApiQuestions {
     public static Question<CompleteOwnerInformation> theOwnerInResponse() {
         return Question.about("the owner in the latest api response")
                 .answeredBy(actor -> actor.asksFor(LastResponse.received()).as(CompleteOwnerInformation.class));
+    }
+
+    public static Question<List<CompleteVeterinarianInformation>> theVeterinariansInResponse() {
+        return Question.about("the veterinarians in the latest api response")
+                .answeredBy(actor -> actor.asksFor(LastResponse.received()).as(new TypeRef<>() {
+                }));
     }
 
     public static Question<Integer> theIdOfTheOwner(String ownerFirstName, String ownerLastName) {

@@ -6,7 +6,6 @@ import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
 import com.ricardorlg.vetclinc.models.web.OwnerRowInformation;
 import com.ricardorlg.vetclinc.tasks.*;
 import com.ricardorlg.vetclinc.utils.Constants;
-import com.ricardorlg.vetclinc.utils.DockerManager;
 import com.ricardorlg.vetclinc.utils.Utils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -30,8 +29,7 @@ import static com.ricardorlg.vetclinc.questions.OwnerQuestions.*;
 import static com.ricardorlg.vetclinc.ui.OwnerPage.PETS_AND_VISITS_DATA;
 import static com.ricardorlg.vetclinc.utils.EndPoints.ALL_OWNERS_PATH;
 import static com.ricardorlg.vetclinc.utils.EndPoints.GET_OWNER_BY_ID_PATH;
-import static com.ricardorlg.vetclinc.utils.Utils.actorTakesTheSpotlight;
-import static com.ricardorlg.vetclinc.utils.Utils.prettyPrint;
+import static com.ricardorlg.vetclinc.utils.Utils.*;
 import static net.serenitybdd.screenplay.EventualConsequence.eventually;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -147,7 +145,7 @@ public class ManageOwnersSteps {
 
     @Then("the response body should include the default owners registered in the system")
     public void theResponseBodyShouldIncludeTheDefaultOwnersRegisteredInTheSystem() throws IOException {
-        List<CompleteOwnerInformation> defaultOwners = DockerManager.getDefaultOwnersData();
+        List<CompleteOwnerInformation> defaultOwners = getDefaultOwnersData();
         Serenity.recordReportData()
                 .withTitle("Default Owners")
                 .andContents(prettyPrint(defaultOwners));
@@ -208,7 +206,8 @@ public class ManageOwnersSteps {
     @Then("the response body should include all the registered information of the owner including the pets and visits")
     public void theResponseBodyShouldIncludeAllTheRegisteredInformationOfTheOwnerIncludingThePetsAndVisits() {
         int fetchedOwnerId = theActorInTheSpotlight().recall(Constants.FETCHED_OWNER_ID);
-        var expectedOwnerInformation = DockerManager.getDefaultOwnersData().stream()
+        var expectedOwnerInformation = getDefaultOwnersData()
+                .stream()
                 .filter(owner -> owner.id() == fetchedOwnerId)
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("The owner with ID " + fetchedOwnerId + " is not registered in the system"));
