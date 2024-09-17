@@ -1,0 +1,236 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html ng-app="petClinicApp" class="ng-scope"&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;style type="text/css"&gt;@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}&lt;/style&gt;<br/>
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;<br/>
+  &lt;meta charset="utf-8"&gt;<br/>
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;<br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimal-ui"&gt;&lt;!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags --&gt;<br/>
+  &lt;link rel="shortcut icon" type="image/x-icon" href="/images/favicon-ca31b78daf0dd9a106bbf3c6d87d4ec7.png"&gt;<br/>
+  &lt;title&gt;PetClinic :: a Spring Framework demonstration&lt;/title&gt;<br/>
+  &lt;link rel="stylesheet" href="/bootstrap/css/bootstrap.min-ec3bb52a00e176a7181d454dffaea219.css"&gt;<br/>
+  &lt;link rel="stylesheet" href="/css/petclinic-0b5b27f7468bd086efbb16114dd9d226.css"&gt;<br/>
+  &lt;script src="/jquery/jquery.min-c9f5aeeca3ad37bf2aa006139b935f0a.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/bootstrap/js/bootstrap.min-5869c96cc8f19086aee625d670d741f9.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/angular/angular-9178813723c9000e94ada81fb96bf544.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/angular-ui-router/release/angular-ui-router.min-0403fffd357fc79901ef819a1d1eb29e.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/app-802edf46c54953cb49e8cd187af26be8.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-list/owner-list-8b7e62215b39cb6e0300e4f30864e401.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-list/owner-list.controller-310984038c8cbe90a08ddd68a075d5dd.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-list/owner-list.component-419c106504d4c8009fc0fa1497dd69f4.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-details/owner-details-9f386b6ae09e97f70e9ea0653e5c58e0.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-details/owner-details.controller-4f5d20929d09804c3a59f9a16bae66d9.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-details/owner-details.component-32aa666446704d8b442163b6f2a4736c.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-form/owner-form-226f889b6f0d75872d0b43f02d1f7d4c.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-form/owner-form.controller-bccaf6f89be19fe65a4e9cc101c12887.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/owner-form/owner-form.component-5d2fbf220adc1100eb8a4a9837ee828b.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/pet-form/pet-form-d4d7e2264740504c7522e685784e0a62.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/pet-form/pet-form.controller-c46481efceb34f95a56c754519573acc.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/pet-form/pet-form.component-453d7f22ca5412aeffddd371043b992f.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/visits/visits-0e7bc77a574ccd04e837397eda186697.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/visits/visits.controller-d6c2573ca94679b1246f22bbd84116e4.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/visits/visits.component-96564e5631e52f74d8a012257eba0d54.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/vet-list/vet-list-12d49fe58f2a5ee5c196ff7c415631fa.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/vet-list/vet-list.controller-fa9204477ba187c8430c79c620ded683.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/vet-list/vet-list.component-6914c291232440024b4cddb5a428f5e4.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/infrastructure/infrastructure-5152dbf682472c7460f3bdb942dde810.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/scripts/infrastructure/httpErrorHandlingInterceptor-3cbe786f71c96c8e907cf5deefcb7291.js"&gt;&lt;/script&gt;<br/>
+ &lt;/head&gt;<br/>
+ &lt;body class="container"&gt;&lt;layout-nav class="ng-isolate-scope"&gt;<br/>
+   &lt;nav class="navbar navbar-default" role="navigation"&gt;<br/>
+    &lt;div class="navbar-header"&gt;&lt;a class="navbar-brand" href="#"&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt; &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar"&gt; &lt;span class="sr-only"&gt;<br/>
+       &lt;os-p&gt;<br/>
+        Toggle navigation<br/>
+       &lt;/os-p&gt;&lt;/span&gt; &lt;span class="icon-bar"&gt;&lt;/span&gt; &lt;span class="icon-bar"&gt;&lt;/span&gt; &lt;span class="icon-bar"&gt;&lt;/span&gt; &lt;/button&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="navbar-collapse collapse" id="main-navbar"&gt;<br/>
+     &lt;ul class="nav navbar-nav navbar-right"&gt;<br/>
+      &lt;li ui-sref-active="active" class=""&gt;&lt;a ui-sref="welcome" title="home page" href="#!/welcome"&gt; &lt;span class="glyphicon glyphicon-home" aria-hidden="true"&gt;&lt;/span&gt; &lt;span&gt;Home&lt;/span&gt; &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li ui-sref-active="active" class="dropdown active"&gt;&lt;a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"&gt;Owners&lt;span class="caret"&gt;&lt;/span&gt; &lt;/a&gt;<br/>
+       &lt;ul class="dropdown-menu"&gt;<br/>
+        &lt;li&gt;&lt;a ui-sref="owners" href="#!/owners"&gt;&lt;span class="glyphicon glyphicon-search" aria-hidden="true"&gt;&lt;/span&gt;&lt;span&gt; All&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a ui-sref="ownerNew" href="#!/owners/new"&gt;&lt;span class="glyphicon glyphicon-plus" aria-hidden="true"&gt;&lt;/span&gt;&lt;span&gt; Register&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;&lt;/li&gt;<br/>
+      &lt;li ui-sref-active="active"&gt;&lt;a ui-sref="vets" title="veterinarians" href="#!/vets"&gt; &lt;span class="glyphicon glyphicon-th-list" aria-hidden="true"&gt;&lt;/span&gt; &lt;span&gt;Veterinarians&lt;/span&gt; &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;/ul&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/nav&gt;<br/>
+  &lt;/layout-nav&gt;<br/>
+  &lt;div class="container-fluid"&gt;<br/>
+   &lt;div class="container xd-container"&gt;&lt;!-- uiView: --&gt;<br/>
+    &lt;div ui-view="" class="ng-scope"&gt;<br/>
+     &lt;!-- uiView: --&gt;&lt;ui-view class="ng-scope"&gt;<br/>
+      &lt;owner-list class="ng-scope ng-isolate-scope"&gt;<br/>
+       &lt;h2&gt;Owners&lt;/h2&gt;<br/>
+       &lt;form onsubmit="void(0)" style="max-width: 20em; margin-top: 2em;" class="ng-pristine ng-valid"&gt;<br/>
+        &lt;div class="form-group"&gt;&lt;input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search Filter" ng-model="$ctrl.query"&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/form&gt;<br/>
+       &lt;table class="table table-striped"&gt;<br/>
+        &lt;thead&gt;<br/>
+         &lt;tr&gt;<br/>
+          &lt;th&gt;Name&lt;/th&gt;<br/>
+          &lt;th class="hidden-sm hidden-xs"&gt;Address&lt;/th&gt;<br/>
+          &lt;th&gt;City&lt;/th&gt;<br/>
+          &lt;th&gt;Telephone&lt;/th&gt;<br/>
+          &lt;th class="hidden-xs"&gt;Pets&lt;/th&gt;<br/>
+         &lt;/tr&gt;<br/>
+        &lt;/thead&gt;<br/>
+        &lt;tbody&gt;<br/>
+         &lt;!-- ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/1"&gt; George Franklin &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;110 W. Liberty St.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Madison&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085551023&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Leo &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/2"&gt; Betty Davis &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;638 Cardinal Ave.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Sun Prairie&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085551749&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Basil &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/3"&gt; Eduardo Rodriquez &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;2693 Commerce St.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;McFarland&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085558763&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Jewel &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Rosy &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/4"&gt; Harold Davis &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;563 Friendly St.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Windsor&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085553198&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Iggy &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/5"&gt; Peter McTavish &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;2387 S. Fair Way&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Madison&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085552765&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;George &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/6"&gt; Jean Coleman &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;105 N. Lake St.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Monona&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085552654&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Max &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Samantha &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/7"&gt; Jeff Black &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;1450 Oak Blvd.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Monona&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085555387&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Lucky &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/8"&gt; Maria Escobito &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;345 Maple St.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Madison&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085557683&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Mulligan &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/9"&gt; David Schroeder &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;2749 Blackhawk Trail&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Madison&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085559435&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Freddy &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/10"&gt; Carlos Estaban &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;2335 Independence La.&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Waunakee&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;6085555487&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Lucky &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Sly &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/11"&gt; Susan White &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;central-district 23&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Amsterdam&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;0673423456&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/12"&gt; Tom Cruise &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;hollywood-street 123&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Los Angeles&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;1467890123&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Killer &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/13"&gt; John Thompson &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;north-hollandstraat 130-2&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Copenhagen&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;4534567890&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/14"&gt; Michael Jackson &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;neverland-ranch 123&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Los Angeles&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;1234567890&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Killer &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/15"&gt; Natalia Larrahondo &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;carrera 12F #30-15 sur&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Bogota&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;3158230923&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/16"&gt; Ryan Reynolds &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;hollywood boulevard 123&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;LA&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;1452369874&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Loki &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Pikachu &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/17"&gt; Sally Plum &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;oudezijds-voorburgwal 123&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Amsterdam&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;0612345678&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/18"&gt; Chris Brown &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;oudezijds-voorburgwal 123&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Amsterdam&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;0612345638&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/19"&gt; Hugh Jackman &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;hollywood avenue 123&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;LA&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;1762369874&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Mew &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;span ng-repeat="pet in owner.pets track by pet.id" class="ng-binding ng-scope"&gt;Nagiri &lt;/span&gt;&lt;!-- end ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+         &lt;tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id" class="ng-scope"&gt;<br/>
+          &lt;td&gt;&lt;a ui-sref="ownerDetails({ ownerId: owner.id })" class="ng-binding" href="#!/owners/details/20"&gt; Estefania Ramirez &lt;/a&gt;&lt;/td&gt;<br/>
+          &lt;td class="hidden-sm hidden-xs ng-binding"&gt;zuid-hollandstraat 130-2&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;Amsterdam&lt;/td&gt;<br/>
+          &lt;td class="ng-binding"&gt;0629416321&lt;/td&gt;<br/>
+          &lt;td class="hidden-xs"&gt;&lt;!-- ngRepeat: pet in owner.pets track by pet.id --&gt;&lt;/td&gt;<br/>
+         &lt;/tr&gt;&lt;!-- end ngRepeat: owner in $ctrl.owners | filter:$ctrl.query track by owner.id --&gt;<br/>
+        &lt;/tbody&gt;<br/>
+       &lt;/table&gt;<br/>
+      &lt;/owner-list&gt;<br/>
+     &lt;/ui-view&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;&lt;layout-footer class="ng-isolate-scope"&gt;<br/>
+   &lt;div class="container"&gt;<br/>
+    &lt;div class="row"&gt;<br/>
+     &lt;div class="col-12 text-center"&gt;<br/>
+      &lt;img src="/images/spring-pivotal-logo.png" alt="Sponsored by Pivotal"&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/layout-footer&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>
