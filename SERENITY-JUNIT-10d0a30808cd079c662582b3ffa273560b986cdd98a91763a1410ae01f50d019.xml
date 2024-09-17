@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="3" failures="0" name="The Pet Clinic should allow to manage the visits information" skipped="0" tests="3" time="328.18" timestamp="2024-09-17 05:46:08"><testcase name="previous visit should be displayed in the Register Visit page"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
-com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
-com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
-com.ricardorlg.vetclinic.stepdefinitions.CommonStepDefinitions.isInTheOwnerInformationPage(CommonStepDefinitions.java:33)
-</system-err></testcase><testcase name="the one where Kelly wants to register a new visit using the Web application"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
-com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
-com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
-com.ricardorlg.vetclinc.tasks.RegisterVisit.performAs(RegisterVisit.java:38)
-com.ricardorlg.vetclinic.stepdefinitions.VisitsManagementSteps.registersTheFollowingVisitFor(VisitsManagementSteps.java:32)
-</system-err></testcase><testcase name="the one where Kelly wants to register a new visit on a pet with already registered visits using the Web application"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
-com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
-com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
-com.ricardorlg.vetclinc.tasks.RegisterVisit.performAs(RegisterVisit.java:38)
-com.ricardorlg.vetclinic.stepdefinitions.VisitsManagementSteps.hasRegisteredTheFollowingVisitFor(VisitsManagementSteps.java:42)
-✽.she has registered the following visit for Mew using the Web application(classpath:features/visits/visits_management.feature:30)
-</system-err></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="The Pet Clinic should allow to manage the visits information" skipped="0" tests="3" time="169.11" timestamp="2024-09-17 06:11:43"><testcase name="previous visit should be displayed in the Register Visit page"/><testcase name="the one where Kelly wants to register a new visit using the Web application"/><testcase name="the one where Kelly wants to register a new visit on a pet with already registered visits using the Web application"/></testsuite>
