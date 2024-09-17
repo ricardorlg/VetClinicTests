@@ -5,7 +5,8 @@ public enum EndPoints {
     ALL_OWNERS_PATH("/owners/list"),
     GET_OWNER_BY_ID_PATH("/owners/{ownerId}"),
     PET_TYPES("/petTypes"),
-    REGISTER_PET("/owners/{ownerId}/pets");
+    REGISTER_PET("/owners/{ownerId}/pets"),
+    VETERINARIANS("/vets");
 
     private final String path;
 

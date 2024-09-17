@@ -46,6 +46,7 @@ jobs:
             include_passed: false
             comment: true
             flaky_summary: true
+            require_tests: true
 
         - name: Deploy Serenity reports
           if: ${{ !cancelled() && github.event_name != 'pull_request' }}

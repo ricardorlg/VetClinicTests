@@ -126,7 +126,7 @@ public class PetsManagementSteps {
                 .map(petsAndVisitsInformation -> petsAndVisitsInformation.petInformation().name())
                 .collect(Collectors.joining(", "));
         theActorInTheSpotlight().should(
-                eventually(seeThat(theDisplayedPetsAndVisitsInformation(), containsInAnyOrder(expected))
+                eventually(seeThat(theDisplayedPetsAndVisitsInformation(), containsInAnyOrder(expected.toArray()))
                         .because("Then %s should contain the information of  " + expectedPetNames)
                 ).waitingForNoLongerThan(5)
                         .seconds()
