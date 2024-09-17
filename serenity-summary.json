@@ -3,35 +3,35 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-17T07:02:34.104491578"
+"date": "2024-09-17T08:37:00.725914794"
 },
 "results": {
 "counts": {
-"total": 35,
+"total": 38,
 "success": 35,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 0,
+"failure": 3,
 "error": 0,
 "compromised": 0
 },
 "percentages": {
-"success": 100,
+"success": 92,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 0,
+"failure": 8,
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 1124547,
-"totalClockDuration": 82954,
-"minTestDuration": 117,
-"maxTestDuration": 80457,
-"averageTestDuration": 32126
+"totalTestDuration": 247793,
+"totalClockDuration": 45925,
+"minTestDuration": 12,
+"maxTestDuration": 24242,
+"averageTestDuration": 6515
 },
 "resultsByFeature": [
   {
@@ -39,6 +39,17 @@
   "scenarios": [
     {
     "title": "the one where Ricardo filters the owners by unknown city",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by first and last name",
     "result": "success",
       "outcomes": [
         {
@@ -60,18 +71,7 @@
       ]
     },
     {
-    "title": "the one where Ricardo filters the owners by first name",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo filters the owners by last name",
+    "title": "the one where Ricardo filters the owners by address",
     "result": "success",
       "outcomes": [
         {
@@ -93,7 +93,7 @@
       ]
     },
     {
-    "title": "the one where Ricardo filters the owners by address",
+    "title": "the one where Ricardo filters the owners by last name",
     "result": "success",
       "outcomes": [
         {
@@ -104,7 +104,7 @@
       ]
     },
     {
-    "title": "the one where Ricardo filters the owners by first and last name",
+    "title": "the one where Ricardo filters the owners by first name",
     "result": "success",
       "outcomes": [
         {
@@ -120,18 +120,18 @@
   "featureName": "The Pet Clinic should allow to manage the owners information",
   "scenarios": [
     {
-    "title": "the one where Ricardo wants to update the personal information of an owner using the Web application",
-    "result": "success",
+    "title": "the one where Ricardo wants to delete an owner using the clinic API",
+    "result": "failure",
       "outcomes": [
         {
-        "result": "success",
+        "result": "failure",
         "description": "",
         "errorMessage": ""
         }
       ]
     },
     {
-    "title": "the one where Ricardo wants to see the list of all owners using the clinic API",
+    "title": "the one where Ricardo wants to update the personal information of an owner using the Web application",
     "result": "success",
       "outcomes": [
         {
@@ -159,6 +159,17 @@
         {
         "result": "success",
         "description": "    Jean Coleman is an owner registered in the system with pets and visits",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo wants to see the list of all owners using the clinic API",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
         "errorMessage": ""
         }
       ]
@@ -224,28 +235,6 @@
       ]
     },
     {
-    "title": "the one where Kelly see the different types of pets available in the system",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo wants to register a new pet using the Web application",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
     "title": "the one where Ricardo wants to register a new pet using the clinic API",
     "result": "success",
       "outcomes": [
@@ -258,6 +247,28 @@
     },
     {
     "title": "the one where Ricardo wants to register multiple pets using the Web application",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Kelly see the different types of pets available in the system",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo wants to register a new pet using the Web application",
     "result": "success",
       "outcomes": [
         {
@@ -310,6 +321,28 @@
   {
   "featureName": "The Pet Clinic should allow to register a pet owner in the system",
   "scenarios": [
+    {
+    "title": "the one where Ricardo tries to register an already existing owner using the clinic API",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo tries to register an already existing owner using the Web form",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
     {
     "title": "1: the one where Kelly tries to register a new owner using the clinic API with invalid data ( [1]",
     "result": "success",
@@ -453,6 +486,14 @@
 "frequentFailures": [
 ],
 "unstableFeatures": [
+  {
+  "name": "The Pet Clinic should allow to register a pet owner in the system",
+  "failurePercentage": 16
+  },
+  {
+  "name": "The Pet Clinic should allow to manage the owners information",
+  "failurePercentage": 16
+  }
 ],
 "coverage": [
 ],
@@ -461,12 +502,16 @@
   "tagType": "",
   "tagResults": [
     {
+    "tagName": "manual",
+    "count": 3
+    },
+    {
     "tagName": "Web",
-    "count": 20
+    "count": 21
     },
     {
     "tagName": "Api",
-    "count": 15
+    "count": 17
     }
   ]
   },
@@ -475,7 +520,7 @@
   "tagResults": [
     {
     "tagName": "Chrome, Linux",
-    "count": 35
+    "count": 38
     }
   ]
   }
