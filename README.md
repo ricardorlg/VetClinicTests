@@ -3,6 +3,7 @@
 This repository contains the technical assignment for the Principal QA Engineer position at BackBase.
 ## Deliverables
 * [Manual test cases](manual_tests.md)
+* [Overall test report](overall_report.md)
 * [PetClinic Automated Test Report](https://ricardorlg.github.io/VetClinicTests/)
 
 ## How to run the tests
