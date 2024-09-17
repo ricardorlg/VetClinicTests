@@ -2,16 +2,21 @@ package com.ricardorlg.vetclinic.stepdefinitions;
 
 import com.ricardorlg.vetclinc.facts.RegisteredOwners;
 import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
+import com.ricardorlg.vetclinc.tasks.Navigates;
+import com.ricardorlg.vetclinc.utils.Constants;
 import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.RememberThat;
 import net.serenitybdd.screenplay.rest.questions.TheResponse;
 
 import java.util.List;
 
 import static com.ricardorlg.vetclinc.questions.CommonApiQuestions.theErrorsInResponse;
+import static com.ricardorlg.vetclinc.questions.CommonApiQuestions.theIdOfTheOwner;
 import static com.ricardorlg.vetclinc.questions.CommonWebQuestions.theDisplayedAlertErrorContent;
 import static com.ricardorlg.vetclinic.matchers.ApiErrorMatcher.hasErrorWithCodeAndField;
 import static net.serenitybdd.screenplay.EventualConsequence.eventually;
@@ -22,6 +27,14 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 @SuppressWarnings("unused")
 public class CommonStepDefinitions {
+
+    @Given("{actor} is in the {word} {word} owner information page")
+    public void isInTheOwnerInformationPage(Actor actor, String firstName, String lastName) {
+        actor.attemptsTo(
+                Navigates.toTheOwnerPage(firstName + " " + lastName),
+                RememberThat.theValueOf(Constants.FETCHED_OWNER_ID).isAnsweredBy(theIdOfTheOwner(firstName, lastName))
+        );
+    }
 
     @And("{actor} has registered the following owner(s) in the system")
     public void theFollowingOwnersAreRegisteredInTheSystem(Actor actor, List<OwnerPersonalInformation> ownersList) {

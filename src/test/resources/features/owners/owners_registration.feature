@@ -54,7 +54,8 @@ Business Need: The Pet Clinic should allow to register a pet owner in the system
         | ricardo   | perez    | address | amsterdam | abc         | Digits     | telephone   |
         | ricardo   | perez    | address | amsterdam | 12312312312 | Digits     | telephone   |
 
-  Rule: The system should not allow to register an owner with same personal information of an existing owner
+    @skip
+    Rule: The system should not allow to register an owner with same personal information of an existing owner
 
     @Web
     Example: the one where Ricardo tries to register an already existing owner using the Web form

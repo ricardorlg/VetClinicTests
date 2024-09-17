@@ -1,4 +1,4 @@
-name: Build and run tests
+name: Run PetClinic tests
 
 on:
   push:
@@ -9,8 +9,9 @@ on:
       inputs:
         use-headless:
           description: 'Run tests in headless mode'
+          type: boolean
           required: false
-          default: 'true'
+          default: true
 
 permissions:
   contents: write
@@ -18,7 +19,7 @@ permissions:
   pull-requests: write
 
 jobs:
-    run-vet-clinic-tests:
+    run-pet-clinic-tests:
         runs-on: ubuntu-latest
 
         steps:
@@ -38,9 +39,9 @@ jobs:
           if: ${{ !cancelled() && github.event_name == 'pull_request' }}
           with:
             report_paths: '**/target/failsafe-reports/TEST-*.xml'
-            check_name: 'VetClinic Test Results'
+            check_name: 'PetClinic Test Results'
             check_title_template: '{{TEST_NAME}}'
-            summary: 'Results for VetClinic tests'
+            summary: 'Results for PetClinic tests'
             detailed_summary: true
             check_retries: true
             include_passed: false
