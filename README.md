@@ -31,12 +31,12 @@ mvn clean verify -Dheadless.mode=false
 
 By default, all tests will be executed. To run only the API tests, run the following command:
 ```shell
-mvn clean verify -Dcucumber.filter.tags="@Api"
+mvn clean verify -Dgroups="Api"
 ```
 
 To run only the Web tests, run the following command:
 ```shell
-mvn clean verify -Dcucumber.filter.tags="@Web"
+mvn clean verify -Dgroups="Web"
 ```
 A report will be generated in the `target/site/serenity` folder. To access the report, open the `index.html` file in a browser.
 
@@ -45,7 +45,6 @@ ___
 
 1. Goes to [Run PetClinic Automated Tests](https://github.com/ricardorlg/VetClinicTests/actions/workflows/build_and_test.yml)
 2. Click on the `Run workflow` button
-3. You can choose to run the tests in headless mode or not by selecting the desired option in the input field. By default, the tests will run in headless mode.
-4. Click on the `Run workflow` button
-5. Wait for the tests to finish
-6. The test report will be published in [GitHub Pages](https://ricardorlg.github.io/VetClinicTests/)
+3. Click on the `Run workflow` button
+4. Wait for the tests to finish
+5. The test report will be published in [GitHub Pages](https://ricardorlg.github.io/VetClinicTests/)

@@ -54,16 +54,16 @@ Business Need: The Pet Clinic should allow to register a pet owner in the system
         | ricardo   | perez    | address | amsterdam | abc         | Digits     | telephone   |
         | ricardo   | perez    | address | amsterdam | 12312312312 | Digits     | telephone   |
 
-    @skip
     Rule: The system should not allow to register an owner with same personal information of an existing owner
 
     @Web
+    @manual
+    @manual-result:failed
+    @manual-last-tested:sprint-1
+    @manual-test-evidence:assets/failed_tc_4.png
     Example: the one where Ricardo tries to register an already existing owner using the Web form
-      Given Kelly has already registered an owner with the following information
-        | firstName | lastName | address           | city      | phone      |
-        | Josh      | Long     | prinsengracht 263 | Amsterdam | 0687234567 |
-      And Ricardo wants to register a new owner using the web application
-      When He fills the registration form with the same data used by Kelly
+      Given Ricardo wants to register a new owner using the same data that other owner
+      When He fills the registration form with the information of the already existing owner
       Then he should see an alert containing the following error
             """
             Bad Request
@@ -71,10 +71,10 @@ Business Need: The Pet Clinic should allow to register a pet owner in the system
             """
 
     @Api
+    @manual
+    @manual-result:failed
     Example: the one where Ricardo tries to register an already existing owner using the clinic API
-      Given Ricardo has already registered an owner with the following information
-        | firstName | lastName | address          | city      | phone      |
-        | Peter     | Anderson | nassaukade 161-2 | Amsterdam | 0629446321 |
-      When Kelly sends a registration request using the clinic API with the same data used by Ricardo
+      Given Ricardo wants to register a new owner using the same data that other owner
+      When He  sends a registration request using the clinic API with the information of the already existing owner
       Then the system should return a 400 response code
       And the response body should include the error with code AlreadyExists and field owner

@@ -21,6 +21,7 @@ public class Hooks {
         if (withRestLogging) {
             SerenityRest.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         }
+        DockerManager.startGlobalContainer();
     }
 
     @Before(value = "not @withFeatureLevelContainer and not @withScenarioLevelContainer", order = 1)

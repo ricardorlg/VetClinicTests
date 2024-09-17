@@ -9,12 +9,6 @@ on:
       - .github/workflows
   pull_request:
   workflow_dispatch:
-      inputs:
-        use-headless:
-          description: 'Run tests in headless mode'
-          type: boolean
-          required: false
-          default: true
 
 permissions:
   contents: write
@@ -35,7 +29,7 @@ jobs:
             cache: maven
 
         - name: Build and test
-          run: mvn -B clean verify -Dheadless.mode=${{ inputs.use-headless }}
+          run: mvn -B clean verify
 
         - name: Publish Test Report
           uses: mikepenz/action-junit-report@v5.0.0-a02
@@ -53,7 +47,7 @@ jobs:
             require_tests: true
 
         - name: Deploy Serenity reports
-          if: ${{ !cancelled() && github.event_name != 'pull_request' }}
+          if: ${{ !cancelled() && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'}}
           uses: JamesIves/github-pages-deploy-action@v4
           with:
             folder: target/site/serenity

@@ -33,6 +33,7 @@ public final class DockerManager {
         if (!container.isCreated() || !container.isRunning()) {
             LOGGER.info("Starting global container");
             container.start();
+            LOGGER.info("Global container started");
         }
     }
 
@@ -60,6 +61,7 @@ public final class DockerManager {
             GenericContainer<?> container = createContainer();
             container.start();
             containerMap.put(identifier, container);
+            LOGGER.info("Container for: {} started", identifier);
         }
         return containerMap.get(identifier);
     }
