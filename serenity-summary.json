@@ -3,17 +3,17 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-16T08:50:30.016250988"
+"date": "2024-09-16T23:58:38.428906478"
 },
 "results": {
 "counts": {
-"total": 25,
-"success": 22,
+"total": 33,
+"success": 29,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 3,
+"failure": 4,
 "error": 0,
 "compromised": 0
 },
@@ -27,11 +27,11 @@
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 662533,
-"totalClockDuration": 110750,
-"minTestDuration": 382,
-"maxTestDuration": 55690,
-"averageTestDuration": 26483
+"totalTestDuration": 881189,
+"totalClockDuration": 128329,
+"minTestDuration": 276,
+"maxTestDuration": 82488,
+"averageTestDuration": 26677
 },
 "resultsByFeature": [
   {
@@ -60,29 +60,7 @@
       ]
     },
     {
-    "title": "the one where Ricardo filters the owners by address",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
     "title": "the one where Ricardo filters the owners by city",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo filters the owners by last name",
     "result": "success",
       "outcomes": [
         {
@@ -113,6 +91,28 @@
         "errorMessage": ""
         }
       ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by last name",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by address",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
     }
   ]
   },
@@ -131,7 +131,7 @@
       ]
     },
     {
-    "title": "the one where Ricardo wants to update the personal information of an owner using the Web application",
+    "title": "the one where Ricardo wants to see the list of all owners using the clinic API",
     "result": "success",
       "outcomes": [
         {
@@ -143,17 +143,6 @@
     },
     {
     "title": "the one where Ricardo wants to see the personal information of an owner using the clinic API",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo wants to see the list of all owners using the clinic API",
     "result": "success",
       "outcomes": [
         {
@@ -184,6 +173,110 @@
         "errorMessage": ""
         }
       ]
+    },
+    {
+    "title": "the one where Ricardo wants to update the personal information of an owner using the Web application",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    }
+  ]
+  },
+  {
+  "featureName": "The Pet Clinic should allow to manage the pets information",
+  "scenarios": [
+    {
+    "title": "the one where Ricardo wants to update the information of a pet using the Web application",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "1: : the one where Ricardo wants to register a new pet with invalid data using the clinic API ( [1]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "1: : the one where Ricardo wants to register a new pet with invalid data using the clinic API ({name=more_than_30_characters_for_request, birthDate=2015-01-20, type=dog, expected_response=500})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "2: : the one where Ricardo wants to register a new pet with invalid data using the clinic API ( [2]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "2: : the one where Ricardo wants to register a new pet with invalid data using the clinic API ({name=Killer, birthDate=not_a_date, type=dog, expected_response=400})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "3: : the one where Ricardo wants to register a new pet with invalid data using the clinic API ( [3]",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "3: : the one where Ricardo wants to register a new pet with invalid data using the clinic API ({name=Killer, birthDate=2015-01-20, type=horse, expected_response=500})",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Kelly see the different types of pets available in the system",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo wants to register a new pet using the Web application",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo wants to register a new pet using the clinic API",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo wants to register multiple pets using the Web application",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": "Assertion error: Expected: iterable with items [<[PetsAndVisitsInformation[petInformation=PetInformation[name=coco, birthDate=2000-06-01, type=lizard], visitInformationList=[]], PetsAndVisitsInformation[petInformation=PetInformation[name=Nagini, birthDate=2019-01-05, type=snake], visitInformationList=[]], PetsAndVisitsInformation[petInformation=PetInformation[name=Nala, birthDate=2016-02-15, type=cat], visitInformationList=[]]]\u003E] in any order but: not matched: <PetsAndVisitsInformation[petInformation=PetInformation[name=coco, birthDate=2000-06-01, type=lizard], visitInformationList=[]]\u003E"
+        }
+      ]
     }
   ]
   },
@@ -191,24 +284,13 @@
   "featureName": "The Pet Clinic should allow to register a pet owner in the system",
   "scenarios": [
     {
-    "title": "the one where Ricardo tries to register a new owner using the clinic API with an existing owner",
+    "title": "the one where Ricardo tries to register an already existing owner using the clinic API",
     "result": "failure",
       "outcomes": [
         {
         "result": "failure",
         "description": "",
         "errorMessage": "Assertion error: Expected: <400> but: was <201>"
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo tries to register a new owner using the Web form with an existing owner",
-    "result": "failure",
-      "outcomes": [
-        {
-        "result": "failure",
-        "description": "",
-        "errorMessage": "Assertion error: There is no alert present"
         }
       ]
     },
@@ -290,7 +372,18 @@
       ]
     },
     {
-    "title": "the one where Ricardo registers a new owner using the Web form with all mandatory data",
+    "title": "the one where Ricardo tries to register an already existing owner using the Web form",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": "Assertion error: There is no alert present"
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo registers a new owner using the clinic API with all mandatory data",
     "result": "success",
       "outcomes": [
         {
@@ -312,7 +405,7 @@
       ]
     },
     {
-    "title": "the one where Ricardo registers a new owner using the clinic API with all mandatory data",
+    "title": "the one where Ricardo registers a new owner using the Web form with all mandatory data",
     "result": "success",
       "outcomes": [
         {
@@ -328,7 +421,7 @@
 "frequentFailures": [
   {
   "name": "Multiple assertion errors",
-  "count": 3
+  "count": 4
   }
 ],
 "unstableFeatures": [
@@ -339,6 +432,10 @@
   {
   "name": "The Pet Clinic should allow to manage the owners information",
   "failurePercentage": 16
+  },
+  {
+  "name": "The Pet Clinic should allow to manage the pets information",
+  "failurePercentage": 12
   }
 ],
 "coverage": [
@@ -349,11 +446,11 @@
   "tagResults": [
     {
     "tagName": "Web",
-    "count": 13
+    "count": 17
     },
     {
     "tagName": "Api",
-    "count": 12
+    "count": 16
     }
   ]
   },
@@ -362,7 +459,7 @@
   "tagResults": [
     {
     "tagName": "Chrome, Linux",
-    "count": 25
+    "count": 33
     }
   ]
   },
@@ -371,7 +468,7 @@
   "tagResults": [
     {
     "tagName": "Assertion error",
-    "count": 3
+    "count": 4
     }
   ]
   }
