@@ -243,7 +243,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 17-09-2024 00:00:51</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 17-09-2024 00:59:42</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -258,7 +258,7 @@
                         <td width="375px" valign="top">
                             <div class="test-count-summary">
                                 <div class="test-count-title">
-                                    16 tests
+                                    17 tests
 
                                      |
                                         <a href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.csv" title="Download CSV"> <i class="bi bi-cloud-arrow-down"
@@ -331,60 +331,60 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>8</td>
+                    <td>9</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>16</td>
+                    <td>17</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Sep 16, 2024 23:58:39</td>
+                    <td>Sep 17, 2024 00:57:33</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Sep 17, 2024 00:00:27</td>
+                    <td>Sep 17, 2024 00:59:12</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td> 1m 48s</td>
+                    <td> 1m 39s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>276ms</td>
+                    <td>185ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>47s</td>
+                    <td>41s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>6s</td>
+                    <td>7s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td> 1m 41s</td>
+                    <td> 2m 6s</td>
                 </tr>
                 </tbody>
             </table>
@@ -424,20 +424,20 @@
 | Daniela | Smith | new-york-street 123 | New York | 124219862 |
 When Ricardo sends a request to delete Daniela Smith using the clinic API
 Ricardo executes a DELETE on the resource /owners/{ownerId}
-DELETE http://localhost:32770/owners/12
+DELETE http://localhost:32769/owners/11
 Then the system should return a 200 response code
 For Ricardo: Then the response status should be (200)
 And the owner should not be listed in the system anymore
 When Ricardo sends a request to list all the owners using the clinic API
 Ricardo executes a GET on the resource /owners/list
-GET http://localhost:32770/owners/list
+GET http://localhost:32769/owners/list
 Then the system should return a 200 response code
 For Ricardo: Then the response status should be (200)
 And the response body should include the default owners registered in the system
 For Ricardo: Then the owners in the latest api response should contain the default owners registered in the system
 When Ricardo sends a request to see all the information of  the owner with ID 1 using the clinic API
 Ricardo executes a GET on the resource /owners/{ownerId}
-GET http://localhost:32770/owners/1
+GET http://localhost:32769/owners/1
 Then the system should return a 200 response code
 For Ricardo: Then the response status should be (200)
 And the response body should include all the registered information of the owner including the pets and visits
@@ -643,6 +643,37 @@ And the information of the pet should be added to the owner information
                                                                                         </div>
                                                                                     </td>
                                                                                 </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                            <a href="83ada511fdf6a64da517a75ffa875b488fc4002d3bd8ed6152c04e89390dddf3.html"> The Pet Clinic should allow to view the data of the veterinarians in the system</a>
+                                                                                    </td>
+                                                                                    <td>1</td>
+                                                                                    <td>When Ricardo sends a request to get the list of veterinarians
+Ricardo executes a GET on the resource /vets
+GET http://localhost:32769/vets
+Then the system should return a 200 response code
+For Ricardo: Then the response status should be (200)
+And the response body should include the default veterinarians information
+For Ricardo: Then the veterinarians in the latest api response should contain exactly the default veterinarians information
+</td>
+                                                                                    <td>1</td>
+                                                                                    <td>100%</td>
+                                                                                    <td>
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="progress">
+                                                                                                <div class="progress-bar"
+                                                                                                     role="progressbar"
+                                                                                                     style="width: 100%; background-color: #b0cf73"
+                                                                                                     aria-valuenow="1"
+                                                                                                     title="100% success"
+                                                                                                     aria-valuemin="0"
+                                                                                                     aria-valuemax="100">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
                                                                         </tbody>
                                                                     </table>
                                                         </div>
@@ -703,7 +734,7 @@ And the information of the pet should be added to the owner information
                             <div>
                                     <a href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">
                                     <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;16
+                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;17
                                     </span>
                                     </a>
                             </div>
@@ -715,7 +746,7 @@ And the information of the pet should be added to the owner information
                             <div>
                                     <a href="46b54d9084ba9783130da16408afb27a4e4620f6bd966e731510c7395b9ddf5c.html">
                                     <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Chrome, Linux&nbsp;&nbsp;&nbsp;16
+                                        <i class="bi bi-tag-fill"></i> Chrome, Linux&nbsp;&nbsp;&nbsp;17
                                     </span>
                                     </a>
                             </div>
@@ -750,22 +781,22 @@ And the information of the pet should be added to the owner information
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>8</td>
+                    <td>9</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td> 1m 48s</td>
+                    <td> 1m 39s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>16</td>
+                    <td>17</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>276ms</td>
+                    <td>185ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -776,30 +807,30 @@ And the information of the pet should be added to the owner information
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>47s</td>
+                    <td>41s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Sep 16, 2024 23:58:39</td>
+                    <td>Sep 17, 2024 00:57:33</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>6s</td>
+                    <td>7s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Sep 17, 2024 00:00:27</td>
+                    <td>Sep 17, 2024 00:59:12</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td> 1m 41s</td>
+                    <td> 2m 6s</td>
                 </tr>
                 </tbody>
             </table>
@@ -843,8 +874,8 @@ When Ricardo sends a request to delete Daniela Smith using the clinic API
 Then the system should return a 200 response code
 And the owner should not be listed in the system anymore
 </td>
-                                                                        <td data-order="1726531119">23:58:39</td>
-                                                                        <td>47s 405ms</td>
+                                                                        <td data-order="1726534653">00:57:33</td>
+                                                                        <td>41s 529ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a> <span
                                                                                     style="display:none">FAILURE</span>
                                                                         </td>
@@ -863,8 +894,8 @@ And the owner should not be listed in the system anymore
 Then the system should return a 200 response code
 And the response body should include the default owners registered in the system
 </td>
-                                                                        <td data-order="1726531158">23:59:18</td>
-                                                                        <td>887ms</td>
+                                                                        <td data-order="1726534686">00:58:06</td>
+                                                                        <td>639ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -883,8 +914,8 @@ And the response body should include the default owners registered in the system
 Then the system should return a 200 response code
 And the response body should include all the registered information of the owner including the pets and visits
 </td>
-                                                                        <td data-order="1726531159">23:59:19</td>
-                                                                        <td>276ms</td>
+                                                                        <td data-order="1726534687">00:58:07</td>
+                                                                        <td>185ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -910,8 +941,8 @@ When Kelly sends a registration request using the clinic API with the same data 
 Then the system should return a 400 response code
 And the response body should include the error with code AlreadyExists and field owner
 </td>
-                                                                        <td data-order="1726531164">23:59:24</td>
-                                                                        <td>11s 259ms</td>
+                                                                        <td data-order="1726534694">00:58:14</td>
+                                                                        <td>10s 372ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a> <span
                                                                                     style="display:none">FAILURE</span>
                                                                         </td>
@@ -941,8 +972,8 @@ And the response body should include the error with code AlreadyExists and field
 Then the system should return a 400 response code
 And the response body should include the error with code <code_error> and field <field_error>
 </td>
-                                                                        <td data-order="1726531170">23:59:29</td>
-                                                                        <td>8s 634ms</td>
+                                                                        <td data-order="1726534697">00:58:17</td>
+                                                                        <td>5s 590ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -966,8 +997,8 @@ And the response body should include the error with code <code_error> and field 
 
 Then the system should return a 201 response code
 </td>
-                                                                        <td data-order="1726531178">23:59:38</td>
-                                                                        <td>353ms</td>
+                                                                        <td data-order="1726534703">00:58:23</td>
+                                                                        <td>549ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1003,8 +1034,8 @@ When he sends a request to register the following pet for Michael Jackson using 
 
 Then the system should return a <expected_response> response code
 </td>
-                                                                        <td data-order="1726531194">23:59:54</td>
-                                                                        <td>18s 846ms</td>
+                                                                        <td data-order="1726534716">00:58:36</td>
+                                                                        <td>7s 898ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1036,8 +1067,28 @@ When he sends a request to register the following pet for Michael Jackson using 
 Then the system should return a 204 response code
 And the information of the pet should be added to the owner information
 </td>
-                                                                        <td data-order="1726531213">00:00:13</td>
-                                                                        <td>14s 310ms</td>
+                                                                        <td data-order="1726534724">00:58:44</td>
+                                                                        <td>28s 116ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="83ada511fdf6a64da517a75ffa875b488fc4002d3bd8ed6152c04e89390dddf3.html">The Pet Clinic should allow to view the data of the veterinarians in the system</a>
+                                                                        </td>
+                                                                        <td data-order="the one where Ricardo wants to view the data of all veterinarians using the API">
+                                                                                    <a href="b16f9109606dbfb7b7e7c577df84eb9cd9a26bd82e3169d8c943d6e1aa9d8c9d.html">the one where Ricardo wants to view the data of all veterinarians using the API</a>
+                                                                        </td>
+                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-ubuntu' title='Linux'></i></span><span style="display:none">Chrome,linux</span>
+                                                                        </td>
+                                                                        <td>3</td>
+                                                                        <td>When Ricardo sends a request to get the list of veterinarians
+Then the system should return a 200 response code
+And the response body should include the default veterinarians information
+</td>
+                                                                        <td data-order="1726534653">00:57:33</td>
+                                                                        <td>31s 339ms</td>
                                                                         <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                                     style="display:none">SUCCESS</span>
                                                                         </td>
@@ -1066,7 +1117,7 @@ And the information of the pet should be added to the owner information
                             <div>
                                     <a href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">
                                     <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;16
+                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;17
                                     </span>
                                     </a>
                             </div>
@@ -1078,7 +1129,7 @@ And the information of the pet should be added to the owner information
                             <div>
                                     <a href="46b54d9084ba9783130da16408afb27a4e4620f6bd966e731510c7395b9ddf5c.html">
                                     <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Chrome, Linux&nbsp;&nbsp;&nbsp;16
+                                        <i class="bi bi-tag-fill"></i> Chrome, Linux&nbsp;&nbsp;&nbsp;17
                                     </span>
                                     </a>
                             </div>
@@ -1144,7 +1195,7 @@ And the information of the pet should be added to the owner information
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [14,0,0,0,0,2,0,0],
+                data: [15,0,0,0,0,2,0,0],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -1240,7 +1291,7 @@ And the information of the pet should be added to the owner information
             datasets: [
                 {
                     label: 'Automated',
-                    data: [14,0,0,0,0,2,0,0],
+                    data: [15,0,0,0,0,2,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -1323,7 +1374,7 @@ And the information of the pet should be added to the owner information
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['9','3','3','1','0','0','0','0'],
+                data: ['8','5','2','2','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
@@ -1400,52 +1451,58 @@ And the information of the pet should be added to the owner information
                 result: 'SUCCESS',
                 link: "435513b1e70389737d812f01476d80c589dd63dfeda6f16fbe632d52a89f2078.html"
             },
+            {
+                title: 'The Pet Clinic should allow to view the data of the veterinarians in the system',
+                result: 'SUCCESS',
+                link: "83ada511fdf6a64da517a75ffa875b488fc4002d3bd8ed6152c04e89390dddf3.html"
+            },
         ]
         const coverageData = {
             labels: [
                 'The Pet Clinic should allow to manage the owners information',
                 'The Pet Clinic should allow to register a pet owner in the system',
                 'The Pet Clinic should allow to manage the pets information',
+                'The Pet Clinic should allow to view the data of the veterinarians in the system',
             ],
             datasets: [
                 {
                     label: ['Passing Tests'],
-                    data: [2,8,4],
+                    data: [2,8,4,1],
                     backgroundColor: [ 'rgba(153,204,51,0.5)' ]
                 },
                 {
                     label: ['Pending Tests'],
-                    data: [0,0,0],
+                    data: [0,0,0,0],
                     backgroundColor: [ 'rgba(165, 199, 238, 0.5)' ]
                 },
                 {
                     label: ['Ignored Tests'],
-                    data: [0,0,0],
+                    data: [0,0,0,0],
                     backgroundColor: [ 'rgba(168, 168, 168, 0.5)' ]
                 },
                 {
                     label: ['Skipped Tests'],
-                    data: [0,0,0],
+                    data: [0,0,0,0],
                     backgroundColor: [ 'rgba(238, 224, 152, 0.75)' ]
                 },
                 {
                     label: ['Aborted Tests'],
-                    data: [0,0,0],
+                    data: [0,0,0,0],
                     backgroundColor: [ 'rgba(255, 153, 102, 0.5)' ]
                 },
                 {
                     label: ['Failed Tests'],
-                    data: [1,1,0],
+                    data: [1,1,0,0],
                     backgroundColor: [ 'rgba(255, 22, 49, 0.5)' ]
                 },
                 {
                     label: ['Errors'],
-                    data: [0,0,0],
+                    data: [0,0,0,0],
                     backgroundColor: [ 'rgba(255, 97, 8, 0.5)' ]
                 },
                 {
                     label: ['Compromised Tests'],
-                    data: [0,0,0],
+                    data: [0,0,0,0],
                     backgroundColor: [ 'rgba(255, 104, 255, 0.5)' ]
                 },
             ]

@@ -3,35 +3,35 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-16T23:58:38.428906478"
+"date": "2024-09-17T00:57:33.016918961"
 },
 "results": {
 "counts": {
-"total": 33,
-"success": 29,
+"total": 35,
+"success": 32,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 4,
+"failure": 3,
 "error": 0,
 "compromised": 0
 },
 "percentages": {
-"success": 88,
+"success": 91,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 12,
+"failure": 9,
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 881189,
-"totalClockDuration": 128329,
-"minTestDuration": 276,
-"maxTestDuration": 82488,
-"averageTestDuration": 26677
+"totalTestDuration": 1028435,
+"totalClockDuration": 124523,
+"minTestDuration": 185,
+"maxTestDuration": 84242,
+"averageTestDuration": 29367
 },
 "resultsByFeature": [
   {
@@ -39,17 +39,6 @@
   "scenarios": [
     {
     "title": "the one where Ricardo filters the owners by unknown city",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo filters the owners by first and last name",
     "result": "success",
       "outcomes": [
         {
@@ -105,6 +94,17 @@
     },
     {
     "title": "the one where Ricardo filters the owners by address",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by first and last name",
     "result": "success",
       "outcomes": [
         {
@@ -269,12 +269,12 @@
     },
     {
     "title": "the one where Ricardo wants to register multiple pets using the Web application",
-    "result": "failure",
+    "result": "success",
       "outcomes": [
         {
-        "result": "failure",
+        "result": "success",
         "description": "",
-        "errorMessage": "Assertion error: Expected: iterable with items [<[PetsAndVisitsInformation[petInformation=PetInformation[name=coco, birthDate=2000-06-01, type=lizard], visitInformationList=[]], PetsAndVisitsInformation[petInformation=PetInformation[name=Nagini, birthDate=2019-01-05, type=snake], visitInformationList=[]], PetsAndVisitsInformation[petInformation=PetInformation[name=Nala, birthDate=2016-02-15, type=cat], visitInformationList=[]]]\u003E] in any order but: not matched: <PetsAndVisitsInformation[petInformation=PetInformation[name=coco, birthDate=2000-06-01, type=lizard], visitInformationList=[]]\u003E"
+        "errorMessage": ""
         }
       ]
     }
@@ -372,17 +372,6 @@
       ]
     },
     {
-    "title": "the one where Ricardo tries to register an already existing owner using the Web form",
-    "result": "failure",
-      "outcomes": [
-        {
-        "result": "failure",
-        "description": "",
-        "errorMessage": "Assertion error: There is no alert present"
-        }
-      ]
-    },
-    {
     "title": "the one where Ricardo registers a new owner using the clinic API with all mandatory data",
     "result": "success",
       "outcomes": [
@@ -405,7 +394,45 @@
       ]
     },
     {
+    "title": "the one where Ricardo tries to register an already existing owner using the Web form",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": "Assertion error: There is no alert present"
+        }
+      ]
+    },
+    {
     "title": "the one where Ricardo registers a new owner using the Web form with all mandatory data",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    }
+  ]
+  },
+  {
+  "featureName": "The Pet Clinic should allow to view the data of the veterinarians in the system",
+  "scenarios": [
+    {
+    "title": "the one where Ricardo wants to view the data of all veterinarians using the API",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Kelly wants to view the data of all veterinarians using the Web application",
     "result": "success",
       "outcomes": [
         {
@@ -421,7 +448,7 @@
 "frequentFailures": [
   {
   "name": "Multiple assertion errors",
-  "count": 4
+  "count": 3
   }
 ],
 "unstableFeatures": [
@@ -432,10 +459,6 @@
   {
   "name": "The Pet Clinic should allow to manage the owners information",
   "failurePercentage": 16
-  },
-  {
-  "name": "The Pet Clinic should allow to manage the pets information",
-  "failurePercentage": 12
   }
 ],
 "coverage": [
@@ -446,11 +469,11 @@
   "tagResults": [
     {
     "tagName": "Web",
-    "count": 17
+    "count": 18
     },
     {
     "tagName": "Api",
-    "count": 16
+    "count": 17
     }
   ]
   },
@@ -459,7 +482,7 @@
   "tagResults": [
     {
     "tagName": "Chrome, Linux",
-    "count": 33
+    "count": 35
     }
   ]
   },
@@ -468,7 +491,7 @@
   "tagResults": [
     {
     "tagName": "Assertion error",
-    "count": 4
+    "count": 3
     }
   ]
   }
