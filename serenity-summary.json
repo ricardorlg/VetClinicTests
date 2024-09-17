@@ -3,35 +3,35 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-09-17T05:18:01.108394116"
+"date": "2024-09-17T05:46:08.184257360"
 },
 "results": {
 "counts": {
 "total": 35,
-"success": 35,
+"success": 15,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 0,
-"error": 0,
+"failure": 2,
+"error": 18,
 "compromised": 0
 },
 "percentages": {
-"success": 100,
+"success": 43,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 0,
-"error": 0,
+"failure": 6,
+"error": 51,
 "compromised": 0
 },
-"totalTestDuration": 1035988,
-"totalClockDuration": 79814,
-"minTestDuration": 96,
-"maxTestDuration": 79505,
-"averageTestDuration": 29593
+"totalTestDuration": 2525171,
+"totalClockDuration": 341399,
+"minTestDuration": 205,
+"maxTestDuration": 310277,
+"averageTestDuration": 72141
 },
 "resultsByFeature": [
   {
@@ -39,78 +39,78 @@
   "scenarios": [
     {
     "title": "the one where Ricardo filters the owners by unknown city",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Ricardo filters the owners by city",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo filters the owners by phone",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Ricardo filters the owners by first name",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by phone",
+    "result": "error",
+      "outcomes": [
+        {
+        "result": "error",
+        "description": "",
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Ricardo filters the owners by last name",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Ricardo filters the owners by address",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Ricardo filters the owners by first and last name",
-    "result": "success",
+    "result": "failure",
       "outcomes": [
         {
-        "result": "success",
+        "result": "failure",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Assertion error: Expected: an element that is currently visible but: no matching element found by [the element containing text 'Welcome to Petclinic' located with: xpath:.//*[contains(normalize-space(text()),'Welcome to Petclinic')]] was not visible"
         }
       ]
     }
@@ -121,12 +121,12 @@
   "scenarios": [
     {
     "title": "the one where Ricardo wants to update the personal information of an owner using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
@@ -154,23 +154,23 @@
     },
     {
     "title": "the one where Ricardo wants to see the personal information of an owner with pets and visits using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "    Jean Coleman is an owner registered in the system with pets and visits",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Ricardo wants to see the personal information of an owner using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "    John Thompson is a new owner registered in the system so he doesn't have any pets or visits yet",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     }
@@ -181,12 +181,12 @@
   "scenarios": [
     {
     "title": "the one where Ricardo wants to update the information of a pet using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
@@ -225,23 +225,12 @@
     },
     {
     "title": "the one where Kelly see the different types of pets available in the system",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
-    "title": "the one where Ricardo wants to register a new pet using the Web application",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
@@ -258,12 +247,23 @@
     },
     {
     "title": "the one where Ricardo wants to register multiple pets using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo wants to register a new pet using the Web application",
+    "result": "failure",
+      "outcomes": [
+        {
+        "result": "failure",
+        "description": "",
+        "errorMessage": "Assertion error: Expected: an element that is currently visible but: no matching element found by [the element containing text 'Welcome to Petclinic' located with: xpath:.//*[contains(normalize-space(text()),'Welcome to Petclinic')]] was not visible"
         }
       ]
     }
@@ -274,34 +274,34 @@
   "scenarios": [
     {
     "title": "previous visit should be displayed in the Register Visit page",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Kelly wants to register a new visit using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Kelly wants to register a new visit on a pet with already registered visits using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     }
@@ -400,23 +400,23 @@
     },
     {
     "title": "the one where Kelly tries to register a new owner using the Web form with invalid data",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     },
     {
     "title": "the one where Ricardo registers a new owner using the Web form with all mandatory data",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     }
@@ -438,12 +438,12 @@
     },
     {
     "title": "the one where Kelly wants to view the data of all veterinarians using the Web application",
-    "result": "success",
+    "result": "error",
       "outcomes": [
         {
-        "result": "success",
+        "result": "error",
         "description": "",
-        "errorMessage": ""
+        "errorMessage": "Driver configuration error: Could not instantiate class org.openqa.selenium.chrome.ChromeDriver"
         }
       ]
     }
@@ -451,8 +451,36 @@
   }
 ],
 "frequentFailures": [
+  {
+  "name": "Multiple assertion errors",
+  "count": 19
+  },
+  {
+  "name": "Driver configuration error",
+  "count": 1
+  }
 ],
 "unstableFeatures": [
+  {
+  "name": "The Pet Clinic should allow to filter the owners in the system",
+  "failurePercentage": 100
+  },
+  {
+  "name": "The Pet Clinic should allow to manage the visits information",
+  "failurePercentage": 100
+  },
+  {
+  "name": "The Pet Clinic should allow to manage the owners information",
+  "failurePercentage": 60
+  },
+  {
+  "name": "The Pet Clinic should allow to manage the pets information",
+  "failurePercentage": 50
+  },
+  {
+  "name": "The Pet Clinic should allow to view the data of the veterinarians in the system",
+  "failurePercentage": 50
+  }
 ],
 "coverage": [
 ],
@@ -476,6 +504,19 @@
     {
     "tagName": "Chrome, Linux",
     "count": 35
+    }
+  ]
+  },
+  {
+  "tagType": "error",
+  "tagResults": [
+    {
+    "tagName": "Driver configuration error",
+    "count": 18
+    },
+    {
+    "tagName": "Assertion error",
+    "count": 2
     }
   ]
   }

@@ -1,1 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="The Pet Clinic should allow to manage the pets information" skipped="0" tests="8" time="212.99" timestamp="2024-09-17 05:18:17"><testcase name="the one where Ricardo wants to update the information of a pet using the Web application"/><testcase name=": the one where Ricardo wants to register a new pet with invalid data using the clinic API"/><testcase name="the one where Kelly see the different types of pets available in the system"/><testcase name="the one where Ricardo wants to register a new pet using the Web application"/><testcase name="the one where Ricardo wants to register a new pet using the clinic API"/><testcase name="the one where Ricardo wants to register multiple pets using the Web application"/></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="3" failures="1" name="The Pet Clinic should allow to manage the pets information" skipped="0" tests="8" time="772.82" timestamp="2024-09-17 05:46:36"><testcase name="the one where Ricardo wants to update the information of a pet using the Web application"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinc.tasks.UpdatesTheInformationOfThePet.performAs(UpdatesTheInformationOfThePet.java:40)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.updatesTheInformationOfThePetUsingTheWebApplicationTo(PetsManagementSteps.java:100)
+</system-err></testcase><testcase name=": the one where Ricardo wants to register a new pet with invalid data using the clinic API"/><testcase name="the one where Kelly see the different types of pets available in the system"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.wantsToRegisterANewPetForAnOwner(PetsManagementSteps.java:39)
+</system-err></testcase><testcase name="the one where Ricardo wants to register a new pet using the clinic API"/><testcase name="the one where Ricardo wants to register multiple pets using the Web application"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinc.tasks.RegisterPet.performAs(RegisterPet.java:49)
+com.ricardorlg.vetclinc.tasks.RegisterPets.performAs(RegisterPets.java:32)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.registersTheFollowingPetsFor(PetsManagementSteps.java:81)
+</system-err></testcase><testcase name="the one where Ricardo wants to register a new pet using the Web application"><failure message="&#10;Expected: an element that is currently visible&#10;     but: no matching element found by [the element containing text 'Welcome to Petclinic' located with: xpath:.//*[contains(normalize-space(text()),'Welcome to Petclinic')]] was not visible" type="java.lang.AssertionError">
+Expected: an element that is currently visible
+     but: no matching element found by [the element containing text 'Welcome to Petclinic' located with: xpath:.//*[contains(normalize-space(text()),'Welcome to Petclinic')]] was not visible</failure><system-err>
+Expected: an element that is currently visible
+     but: no matching element found by [the element containing text 'Welcome to Petclinic' located with: xpath:.//*[contains(normalize-space(text()),'Welcome to Petclinic')]] was not visible
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinc.tasks.RegisterPet.performAs(RegisterPet.java:49)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.registersTheFollowingPetFor(PetsManagementSteps.java:71)
+</system-err></testcase></testsuite>
