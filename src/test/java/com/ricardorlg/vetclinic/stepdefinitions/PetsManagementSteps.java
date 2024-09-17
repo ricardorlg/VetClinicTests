@@ -42,9 +42,11 @@ public class PetsManagementSteps {
         );
     }
 
-    @Given("{pronoun} has registered the following pet for {word} {word}")
-    public void hasRegisteredTheFollowingPetFor(Actor actor, String firstName, String lastName, PetInformation petInformation) {
-        actor.wasAbleTo(
+
+
+    @Given("{pronoun} has registered the following pet(s) for {word} {word}")
+    public void hasRegisteredTheFollowingPetsFor(Actor actor, String firstName, String lastName, List<PetInformation> pets) {
+        pets.forEach(petInformation -> actor.wasAbleTo(
                 Check.whether(TheMemory.withKey(Constants.USE_WEB_FORM_KEY).isPresent())
                         .andIfSo(
                                 Forget.theValueOf(Constants.USE_WEB_FORM_KEY),
@@ -58,9 +60,10 @@ public class PetsManagementSteps {
                                         .forOwner(firstName, lastName)
                                         .withPetInformation(petInformation)
                                         .withNoReporting()
-                        ),
-                RememberThat.theValueOf(Constants.LATEST_REGISTERED_PET_OWNER_NAME).is(firstName + " " + lastName)
-        );
+                        )
+        ));
+        actor.remember(Constants.LATEST_REGISTERED_PET_OWNER_NAME, firstName + " " + lastName);
+
     }
 
     @When("{pronoun} registers the following pet for {word} {word} using the Web application")

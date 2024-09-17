@@ -3,6 +3,7 @@ package com.ricardorlg.vetclinic.stepdefinitions;
 import com.ricardorlg.vetclinc.models.common.OwnerPersonalInformation;
 import com.ricardorlg.vetclinc.models.common.PetInformation;
 import com.ricardorlg.vetclinc.models.common.VeterinarianInformation;
+import com.ricardorlg.vetclinc.models.common.VisitInformation;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.ParameterType;
 import net.serenitybdd.screenplay.Actor;
@@ -49,6 +50,15 @@ public class ParameterTypes {
                 parseEntry(entry.get("specialities"))
         );
     }
+
+    @DataTableType(replaceWithEmptyString = "[empty]")
+    public VisitInformation visitInformation(Map<String, String> entry) {
+        return new VisitInformation(
+                parseEntry(entry.get("date")),
+                parseEntry(entry.get("description"))
+        );
+    }
+
 
     private String parseEntry(String entry) {
         if (entry.equals("[blank]")) {

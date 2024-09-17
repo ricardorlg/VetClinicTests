@@ -135,4 +135,17 @@ public final class OwnerQuestions {
                     return actor.asksFor(theOwnerInResponse());
                 });
     }
+
+    public static Question<List<VisitInformation>> theDisplayedVisitsOf(String petName) {
+        return Question.about("the displayed visits of the pet " + petName)
+                .answeredBy(actor -> {
+                    var allPetsAndVisits = actor.asksFor(theDisplayedPetsAndVisitsInformation());
+                    return allPetsAndVisits
+                            .stream()
+                            .filter(petAndVisits -> petAndVisits.petInformation().name().equalsIgnoreCase(petName))
+                            .findFirst()
+                            .map(PetsAndVisitsInformation::visitInformationList)
+                            .orElse(new ArrayList<>());
+                });
+    }
 }

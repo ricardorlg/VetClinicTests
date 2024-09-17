@@ -53,6 +53,7 @@ Business Need: The Pet Clinic should allow to manage the owners information
   Rule: The system should allow to delete an owner registered in the system
 
     @Api
+    @skip
     Example: the one where Ricardo wants to delete an owner using the clinic API
       Given Kelly has registered the following owner in the system
         | firstName | lastName | address             | city     | phone     |

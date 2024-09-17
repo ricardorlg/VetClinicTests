@@ -24,6 +24,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 
+@SuppressWarnings("unused")
 public class ViewVeterinariansSteps {
 
     @Given("{actor} is using the Pet Clinic Web application")

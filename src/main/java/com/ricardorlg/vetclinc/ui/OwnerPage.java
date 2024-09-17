@@ -1,6 +1,7 @@
 package com.ricardorlg.vetclinc.ui;
 
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.screenplay.ui.Button;
 import net.serenitybdd.screenplay.ui.Link;
 import org.openqa.selenium.By;
 
@@ -14,4 +15,5 @@ public final class OwnerPage {
     public static final Target EDIT_OWNER_BUTTON = Link.withText("Edit Owner");
     public static final Target ADD_NEW_PET_BUTTON = Link.withText("Add New Pet");
     public static final Target PET_WITH_NAME_LINK = Link.withText("{0}");
+    public static final Target ADD_VISIT_FOR_PET_BUTTON = Button.locatedBy("//h2[text()='Pets and Visits']/following-sibling::table/descendant::tr[descendant::a[text()='{0}']]/descendant::a[text()='Add Visit']");
 }

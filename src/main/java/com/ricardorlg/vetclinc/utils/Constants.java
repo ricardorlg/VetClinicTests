@@ -14,7 +14,9 @@ public final class Constants {
     public static final String UPDATED_PET_INFORMATION = "updated.pet.information";
     public static final String OLD_PET_INFORMATION = "old.pet.information";
     public static final String IS_USING_FEATURE_LEVEL_CONTAINER = "is.using.feature.level.container";
-    public static String FETCHED_OWNER_ID = "fetched.owner.id";
-    public static String OWNER_PAGE_DATE_FORMAT = "yyyy MMM dd";
-    public static String COMMON_DATE_FORMAT = "yyyy-MM-dd";
+    public static final String LATEST_REGISTERED_VISIT_INFORMATION = "latest.registered.visit.information";
+    public static final String LATEST_ADDED_VISIT_PET_NAME = "latest.added.visit.pet.name";
+    public static final String FETCHED_OWNER_ID = "fetched.owner.id";
+    public static final String OWNER_PAGE_DATE_FORMAT = "yyyy MMM dd";
+    public static final String COMMON_DATE_FORMAT = "yyyy-MM-dd";
 }
