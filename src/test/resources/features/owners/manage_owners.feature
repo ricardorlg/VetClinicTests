@@ -53,11 +53,9 @@ Business Need: The Pet Clinic should allow to manage the owners information
   Rule: The system should allow to delete an owner registered in the system
 
     @Api
-    @skip
+    @manual
+    @manual-result:failed
     Example: the one where Ricardo wants to delete an owner using the clinic API
-      Given Kelly has registered the following owner in the system
-        | firstName | lastName | address             | city     | phone     |
-        | Daniela   | Smith    | new-york-street 123 | New York | 124219862 |
-      When Ricardo sends a request to delete Daniela Smith using the clinic API
+      When Ricardo sends a request to delete an owner in the system
       Then the system should return a 200 response code
       And the owner should not be listed in the system anymore

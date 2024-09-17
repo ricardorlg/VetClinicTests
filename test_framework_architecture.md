@@ -102,8 +102,7 @@ and the capabilities of the browser used in the execution.
 I used GitHub Actions to run the tests in a CI/CD pipeline. The pipeline is defined in
 the [build_and_test.yml](.github/workflows/build_and_test.yml) file. The pipeline is triggered when a push is made to
 the main branch, when a pull request is created or can be triggered manually. The pipeline will run the tests in a
-headless mode by default, but it's possible to run the tests in a non-headless mode by setting the `headless.mode`
-input.
+headless mode.
 
 The pipeline will publish the test report in [GitHub Pages](https://ricardorlg.github.io/VetClinicTests/).
 

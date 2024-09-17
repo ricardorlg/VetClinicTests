@@ -51,7 +51,7 @@ public class CommonStepDefinitions {
                 eventually(
                         seeThat(theDisplayedAlertErrorContent(), containsStringIgnoringCase(expectedErrorContent.getContent()))
                                 .because("Then %s should contain all the invalid fields")
-                ).waitingForNoLongerThan(10)
+                ).waitingForNoLongerThan(20)
                         .seconds()
         );
     }

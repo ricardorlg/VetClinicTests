@@ -3,7 +3,6 @@ package com.ricardorlg.vetclinic.actors;
 import com.ricardorlg.vetclinc.utils.Constants;
 import com.ricardorlg.vetclinc.utils.DockerManager;
 import io.cucumber.java.Scenario;
-import net.serenitybdd.model.buildinfo.BuildInfo;
 import net.serenitybdd.screenplay.Ability;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -37,16 +36,12 @@ public class VetClinicCast extends Cast {
         String baseUrl;
         if (withGlobalContainer) {
             baseUrl = DockerManager.getGlobalContainerBaseUrl();
-            BuildInfo.section("Docker Container Information")
-                    .setProperty("Global URL", baseUrl);
             actor.remember(Constants.IS_USING_FEATURE_LEVEL_CONTAINER, false);
         } else if (withFeatureLevelContainer) {
             var featureName = StringUtils.substringAfterLast(scenario.getUri().toString(), "/");
             var container = DockerManager.startContainerFor(featureName);
             baseUrl = DockerManager.getContainerBaseUrl(container);
             actor.remember(Constants.IS_USING_FEATURE_LEVEL_CONTAINER, true);
-            BuildInfo.section("Docker Container Information")
-                    .setProperty(featureName + " URL", baseUrl);
         } else {
             throw new IllegalStateException("At least one of the flags withGlobalContainer or withFeatureLevelContainer must be true");
         }

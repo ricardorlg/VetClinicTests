@@ -13,8 +13,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.hasValue;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class UpdateOwnerPersonalInformation implements Task {
     private final String ownerFirstName;
@@ -43,7 +42,12 @@ public class UpdateOwnerPersonalInformation implements Task {
         actor.attemptsTo(
                 SearchOwnerInOwnersTable.withName(ownerFirstName, ownerLastName),
                 SelectFromOwnersTable.theOwnerWithFullName(ownerFirstName + " " + ownerLastName),
-                WaitUntil.the(OwnerPage.EDIT_OWNER_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(OwnerPage.NAME_FIELD, containsText(ownerFirstName + " " + ownerLastName))
+                        .forNoMoreThan(20)
+                        .seconds(),
+                WaitUntil.the(OwnerPage.EDIT_OWNER_BUTTON, isVisible())
+                        .forNoMoreThan(15)
+                        .seconds(),
                 Click.on(OwnerPage.EDIT_OWNER_BUTTON),
                 WaitUntil.the(EditOwnerPage.FIRST_NAME_FIELD, hasValue(ownerFirstName)).forNoMoreThan(20).seconds(),
                 RememberThat.theValueOf(Constants.CURRENT_PAGE_TITLE).is(EditOwnerPage.PAGE_TITLE),

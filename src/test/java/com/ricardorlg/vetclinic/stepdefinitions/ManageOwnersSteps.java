@@ -42,6 +42,7 @@ import static org.hamcrest.collection.IsEmptyCollection.empty;
 public class ManageOwnersSteps {
 
     @Given("{pronoun} wants to filter the data of the owners displayed in the Owners page")
+    @Given("{actor} wants to filter the data of the owners displayed in the Owners page")
     public void wantsToFilterTheDataOfTheOwnersDisplayedInTheOwnersPage(Actor actor) {
         actor.attemptsTo(
                 RememberThat.theValueOf(Constants.USE_WEB_FORM_KEY).is(true),
