@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="The Pet Clinic should allow to manage the pets information" skipped="0" tests="8" time="308.68" timestamp="2024-09-17 03:15:51"><testcase name="the one where Ricardo wants to update the information of a pet using the Web application"/><testcase name=": the one where Ricardo wants to register a new pet with invalid data using the clinic API"/><testcase name="the one where Kelly see the different types of pets available in the system"/><testcase name="the one where Ricardo wants to register a new pet using the clinic API"/><testcase name="the one where Ricardo wants to register multiple pets using the Web application"/><testcase name="the one where Ricardo wants to register a new pet using the Web application"/></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="4" failures="0" name="The Pet Clinic should allow to manage the pets information" skipped="0" tests="8" time="768.8" timestamp="2024-09-17 05:10:45"><testcase name="the one where Ricardo wants to update the information of a pet using the Web application"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinc.tasks.UpdatesTheInformationOfThePet.performAs(UpdatesTheInformationOfThePet.java:40)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.updatesTheInformationOfThePetUsingTheWebApplicationTo(PetsManagementSteps.java:100)
+</system-err></testcase><testcase name=": the one where Ricardo wants to register a new pet with invalid data using the clinic API"/><testcase name="the one where Kelly see the different types of pets available in the system"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.wantsToRegisterANewPetForAnOwner(PetsManagementSteps.java:39)
+</system-err></testcase><testcase name="the one where Ricardo wants to register a new pet using the clinic API"/><testcase name="the one where Ricardo wants to register a new pet using the Web application"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinc.tasks.RegisterPet.performAs(RegisterPet.java:49)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.registersTheFollowingPetFor(PetsManagementSteps.java:71)
+</system-err></testcase><testcase name="the one where Ricardo wants to register multiple pets using the Web application"><error message="Could not instantiate class org.openqa.selenium.chrome.ChromeDriver" type="net.thucydides.core.webdriver.DriverConfigurationError">Could not instantiate class org.openqa.selenium.chrome.ChromeDriver</error><system-err>Could not instantiate class org.openqa.selenium.chrome.ChromeDriver
+com.ricardorlg.vetclinc.tasks.Navigates.lambda$toTheWelcomePage$0(Navigates.java:25)
+com.ricardorlg.vetclinc.tasks.SearchOwnerInOwnersTable.performAs(SearchOwnerInOwnersTable.java:29)
+com.ricardorlg.vetclinc.tasks.RegisterPet.performAs(RegisterPet.java:49)
+com.ricardorlg.vetclinc.tasks.RegisterPets.performAs(RegisterPets.java:32)
+com.ricardorlg.vetclinic.stepdefinitions.PetsManagementSteps.registersTheFollowingPetsFor(PetsManagementSteps.java:81)
+</system-err></testcase></testsuite>
