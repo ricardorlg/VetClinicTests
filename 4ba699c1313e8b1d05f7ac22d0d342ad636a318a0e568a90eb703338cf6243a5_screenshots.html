@@ -155,7 +155,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 17-09-2024 08:37</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 02-10-2024 13:55</span>
     <br style="clear:left"/>
 </div>
 
@@ -193,6 +193,13 @@ In order to handle all the pets and visits made by him
                             </p>
                             <p class="tag">
                                 <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="f6407feed55253c8001fc9510ae84faad1c0614824787775590646b8db680c61.html">Assertion Error
+                                        (error)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
                                     <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="827cebe9280eca2bf792cd395a4ba273d75eb55431d85a3a497980043858ba27.html">Web
                                 </a>
                                 </span>
@@ -205,9 +212,9 @@ In order to handle all the pets and visits made by him
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon fa-2x' title='FAILURE'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">the one where Kelly tries to register a new owner using the Web form with invalid data
+                                <span class="failing-color">the one where Kelly tries to register a new owner using the Web form with invalid data
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -224,6 +231,49 @@ In order to handle all the pets and visits made by him
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Assertion error: There is no alert present</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>java.lang.AssertionError </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.ricardorlg.vetclinc.questions.CommonWebQuestions.lambda$theDisplayedAlertErrorContent$1(CommonWebQuestions.java:27)<br />com.ricardorlg.vetclinic.stepdefinitions.CommonStepDefinitions.shouldSeeAnAlertContainingTheFollowingError(CommonStepDefinitions.java:50)<br /></pre>
+                    </div>
+
+                    <h4>
+                        Caused by: org.openqa.selenium.NoAlertPresentException
+                    </h4>
+                    <div>
+                            <pre>no such alert<br>  (Session info: chrome=129.0.6668.58)<br>Build info: version: '4.23.1', revision: '656257d8e9'<br>System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-1014-azure', java.version: '21.0.4'<br>Driver info: org.openqa.selenium.chrome.ChromeDriver<br>Command: [be9ccf254868f3dc59b485cbe266e38a, getAlertText {}]<br>Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 129.0.6668.58, chrome: {chromedriverVersion: 129.0.6668.58 (81a06fb873a9..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43553}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43553/devtoo..., se:cdpVersion: 129.0.6668.58, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}<br>Session ID: be9ccf254868f3dc59b485cbe266e38a</pre>
+                        <pre>com.ricardorlg.vetclinc.questions.CommonWebQuestions.lambda$theDisplayedAlertErrorContent$1(CommonWebQuestions.java :19)<br />com.ricardorlg.vetclinic.stepdefinitions.CommonStepDefinitions.shouldSeeAnAlertContainingTheFollowingError(CommonStepDefinitions.java :50)<br /></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    <div class="panel-body">
+                        <a href="pagesource3252022041324546301.html" target="_blank" class="btn btn-info">HTML Source</a>
+                    </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="fb3ed0c4fe8837cb5d205ad0dbdb02205f8ae80010e46d47c45277c537e2aab4.png" title=" Given Kelly wants to register a new owner using the web application" width="0"/>
@@ -231,7 +281,7 @@ In order to handle all the pets and visits made by him
                 <img src="fb3ed0c4fe8837cb5d205ad0dbdb02205f8ae80010e46d47c45277c537e2aab4.png" title=" Kelly navigates to the welcome page" width="0"/>
                 <img src="fb3ed0c4fe8837cb5d205ad0dbdb02205f8ae80010e46d47c45277c537e2aab4.png" title=" Kelly opens the browser at http://localhost:32769" width="0"/>
                 <img src="fb3ed0c4fe8837cb5d205ad0dbdb02205f8ae80010e46d47c45277c537e2aab4.png" title=" Kelly navigates to the welcome page (completed)" width="0"/>
-                <img src="7c84e2e492a30af6bd530fc065cda190db44030aa8f407ac2b729b16ae78987a.png" title=" Kelly clicks on the Owners menu" width="0"/>
+                <img src="01b8f75174eefa99a8941faca6664e4152710c7221075f1edf98b1edc3fa9000.png" title=" Kelly clicks on the Owners menu" width="0"/>
                 <img src="d775139d6c0d59827e68ac946e394cafbc3b3390e348bf5cf039d04a549bb72e.png" title=" Kelly clicks on the Register button" width="0"/>
                 <img src="d775139d6c0d59827e68ac946e394cafbc3b3390e348bf5cf039d04a549bb72e.png" title=" Kelly navigates to the owner registration page (completed)" width="0"/>
                 <img src="d775139d6c0d59827e68ac946e394cafbc3b3390e348bf5cf039d04a549bb72e.png" title=" Given Kelly wants to register a new owner using the web application (completed)" width="0"/>
@@ -241,10 +291,16 @@ In order to handle all the pets and visits made by him
                 <img src="bab119d3112940e6f4253ffd8acf00252c92d2a941417650e89848cfe07fcc71.png" title=" Kelly registers a new Owner using the web form" width="0"/>
                 <img src="bab119d3112940e6f4253ffd8acf00252c92d2a941417650e89848cfe07fcc71.png" title=" Kelly enters '  ' into the 'firstName' input field" width="0"/>
                 <img src="f65e298bc8fde2773cddf3a5080256217abf48d5427e348c6850a4ef9fb06877.png" title=" Kelly enters '  ' into the 'lastName' input field" width="0"/>
-                <img src="f14bc709163b37e83be9d2e2db163b35b23a4d751f2c8872028a76da8474820d.png" title=" Kelly enters '  ' into the 'address' input field" width="0"/>
-                <img src="8b52893894b5a02b7e8d815fcea9f5cbf20fd9dba73b15754cc02e39ab5dd730.png" title=" Kelly enters '  ' into the 'city' input field" width="0"/>
+                <img src="78bedf4b0ec1897e2de1e098eae7f7cc1689d66936bb711c46f6713706cd83ec.png" title=" Kelly enters '  ' into the 'address' input field" width="0"/>
+                <img src="1902d81d0b5e12cc31d25a7b344429a736f637ce1d7f366c61dc8cd1c6a269a7.png" title=" Kelly enters '  ' into the 'city' input field" width="0"/>
+                <img src="6adfaaf39f64ce92d191f0a038659beeb3e3d01e5f2fa8e941d16b371c5d10a2.png" title=" Kelly enters 'abc' into the 'telephone' input field" width="0"/>
+                <img src="6a1750161da69ad0787f7e6684ef11ba001d34c0620a2ae75e927cd18f840c35.png" title=" Kelly registers a new Owner using the web form (completed)" width="0"/>
+                <img src="6a1750161da69ad0787f7e6684ef11ba001d34c0620a2ae75e927cd18f840c35.png" title=" When she fills the registration form with the following information
+| firstName | lastName | address | city | phone |
+| [blank] | [blank] | [blank] | [blank] | abc | (completed)" width="0"/>
+                <img src="6a1750161da69ad0787f7e6684ef11ba001d34c0620a2ae75e927cd18f840c35.png" title=" Then she should see an alert containing the following error" width="0"/>
 
-                <img src="900e38c1fb5b2bfad3a722b3a4c3edda253c3b86b882a4063f1dda0d2c2c706a.png" title=" Kelly enters 'abc' into the 'telephone' input field: <span class='success-color'>SUCCESS</span>" width="0"/>
+                <img src="6a1750161da69ad0787f7e6684ef11ba001d34c0620a2ae75e927cd18f840c35.png" title=" For Kelly: Then the content of visible alert should contain all the invalid fields: <span class='failing-color'>FAILURE</span>" width="0"/>
             </div>
         </div>
 
