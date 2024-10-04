@@ -3,35 +3,35 @@
 "title": "BackBase QA Challenge",
 "tagCategoryTitle": "Category",
 "version": "",
-"date": "2024-10-02T13:55:40.877400308"
+"date": "2024-10-04T06:02:03.628779386"
 },
 "results": {
 "counts": {
 "total": 38,
-"success": 34,
+"success": 35,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 4,
+"failure": 3,
 "error": 0,
 "compromised": 0
 },
 "percentages": {
-"success": 89,
+"success": 92,
 "pending": 0,
 "ignored": 0,
 "skipped": 0,
 "aborted": 0,
-"failure": 11,
+"failure": 8,
 "error": 0,
 "compromised": 0
 },
-"totalTestDuration": 260730,
-"totalClockDuration": 47564,
-"minTestDuration": 21,
-"maxTestDuration": 29858,
-"averageTestDuration": 6852
+"totalTestDuration": 327248,
+"totalClockDuration": 58696,
+"minTestDuration": 31,
+"maxTestDuration": 34993,
+"averageTestDuration": 8607
 },
 "resultsByFeature": [
   {
@@ -60,17 +60,6 @@
       ]
     },
     {
-    "title": "the one where Ricardo filters the owners by address",
-    "result": "success",
-      "outcomes": [
-        {
-        "result": "success",
-        "description": "",
-        "errorMessage": ""
-        }
-      ]
-    },
-    {
     "title": "the one where Ricardo filters the owners by city",
     "result": "success",
       "outcomes": [
@@ -82,7 +71,7 @@
       ]
     },
     {
-    "title": "the one where Ricardo filters the owners by last name",
+    "title": "the one where Ricardo filters the owners by address",
     "result": "success",
       "outcomes": [
         {
@@ -105,6 +94,17 @@
     },
     {
     "title": "the one where Ricardo filters the owners by first name",
+    "result": "success",
+      "outcomes": [
+        {
+        "result": "success",
+        "description": "",
+        "errorMessage": ""
+        }
+      ]
+    },
+    {
+    "title": "the one where Ricardo filters the owners by last name",
     "result": "success",
       "outcomes": [
         {
@@ -433,12 +433,12 @@
     },
     {
     "title": "the one where Kelly tries to register a new owner using the Web form with invalid data",
-    "result": "failure",
+    "result": "success",
       "outcomes": [
         {
-        "result": "failure",
+        "result": "success",
         "description": "",
-        "errorMessage": "Assertion error: There is no alert present"
+        "errorMessage": ""
         }
       ]
     },
@@ -484,15 +484,11 @@
   }
 ],
 "frequentFailures": [
-  {
-  "name": "Multiple assertion errors",
-  "count": 1
-  }
 ],
 "unstableFeatures": [
   {
   "name": "The Pet Clinic should allow to register a pet owner in the system",
-  "failurePercentage": 25
+  "failurePercentage": 16
   },
   {
   "name": "The Pet Clinic should allow to manage the owners information",
@@ -525,15 +521,6 @@
     {
     "tagName": "Chrome, Linux",
     "count": 38
-    }
-  ]
-  },
-  {
-  "tagType": "error",
-  "tagResults": [
-    {
-    "tagName": "Assertion error",
-    "count": 1
     }
   ]
   }
